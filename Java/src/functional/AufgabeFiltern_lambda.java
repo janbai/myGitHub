@@ -18,8 +18,7 @@ public class AufgabeFiltern_lambda {
 
       
            
-         ArrayList<Integer> listGerade = filtern(list, (Integer z) -> {return z> 0 && z%2==0;});
-          
+           
 
 		              } // end of main
 
