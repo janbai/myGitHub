@@ -43,7 +43,7 @@ public class Wdh_Lambda {
 		u5.use("di");
 		
 		UseString u6 = s ->  System.out.print(s);
-		System.out.print(s);
+		
 		
 	}
 
