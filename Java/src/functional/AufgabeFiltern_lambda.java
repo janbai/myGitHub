@@ -2,6 +2,8 @@ package functional;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
+
+
 public class AufgabeFiltern_lambda {
       public static void main(String[] args) {
 
@@ -17,7 +19,9 @@ public class AufgabeFiltern_lambda {
            System.out.println("list: " + list);
 
       
-           
+           ArrayList<Integer> listGerade = filtern(list, (Integer z) -> {return z> 0 && z%2==0;});
+
+           System.out.println("list gerade: " + listGerade); // 12, 14, -4
            
 
 		              } // end of main
@@ -34,5 +38,5 @@ static ArrayList<Integer> filtern(ArrayList<Integer> list, Predicate<Integer> fi
        return back;
       }
 
-	
+
 }
