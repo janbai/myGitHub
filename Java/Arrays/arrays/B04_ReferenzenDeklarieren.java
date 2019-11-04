@@ -1,0 +1,16 @@
+package arrays;
+
+public class B04_ReferenzenDeklarieren {
+
+	public static void main(String[] args) {
+		
+		int [] a1;
+		int a2[];
+		
+		a1 = new int [22];
+		a2 = new int [33];
+		
+
+	}
+
+}
