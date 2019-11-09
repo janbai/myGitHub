@@ -37,7 +37,7 @@ public class Jsoup_02 {
 					sb.append(line).append("\n");
 					
 				}
-				System.out.println(sb);
+				System.out.print(sb);
 				
 				
 			} catch (IOException e) {
