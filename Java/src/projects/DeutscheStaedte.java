@@ -98,7 +98,21 @@ static void printListFromWeb (String html, List<Integer> columnsRange,List<Integ
 			}														 //|
 			System.out.println();									 //|
 	//---------------------------------------------------------------//|
-	
+			String str= "";
+			 int k = 2;
+			long Gesamtbevölkerung=0;
+			for (int i = 2; i < rows.size()-2; i++) {
+		    	
+		    	Elements columns = rows.get(i).select("td"); //td , th header
+		    	
+		    	str =  columns.get((k+9)).text().replace(".", "");
+		    	
+		    	
+		    	Gesamtbevölkerung = Gesamtbevölkerung + Long.parseLong(str);
+		    	
+			}//------------------------------------------------------------------------------------------------------//|
+			System.out.println(Gesamtbevölkerung);
+			System.out.println();
 }//end of printListFromWeb
 
 
@@ -109,10 +123,11 @@ static void printListFromWeb (String html, List<Integer> columnsRange,List<Integ
 		List<Integer> columnsRange = new ArrayList <>(); //List<Integer> columnsRange = Arrays.asList(0, 1, 11, 16);
 		columnsRange.add(0);
 		columnsRange.add(1);	
-		columnsRange.add(2); //column 11: 3+8 für 2018
+		columnsRange.add(2); //column 11: 2+9 für 2018
 		columnsRange.add(3);
 		columnsRange.add(4);
 		columnsRange.add(7); 	// column 16 :für Bundslands
+		
 		List<Integer> columnsFormat = new ArrayList<>();
 		columnsFormat.add(15);
 		columnsFormat.add(-25);
@@ -127,6 +142,8 @@ static void printListFromWeb (String html, List<Integer> columnsRange,List<Integ
 		columnsRange.remove(5);
 		columnsRange.remove(4);
 		columnsRange.remove(3);
+		columnsRange.remove(1);
+		columnsRange.remove(0);
 		
 		printListFromWeb(html,columnsRange, columnsFormat) ;
     
