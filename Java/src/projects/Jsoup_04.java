@@ -1,4 +1,4 @@
-package calculator;
+package projects;
 
 import java.io.IOException;
 import java.net.URL;

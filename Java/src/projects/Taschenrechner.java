@@ -1,4 +1,4 @@
-package calculator;
+package projects;
 
 import java.util.Arrays;
 import java.util.Scanner;

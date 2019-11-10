@@ -1,4 +1,4 @@
-package calculator;
+package projects;
 
 import java.io.BufferedReader;
 import java.io.File;
