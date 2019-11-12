@@ -23,7 +23,7 @@ public class Kalendar {
 		
 		//LocalDate date = LocalDate.of(year, month, dayOfMonth);
 		
-		printCalendar( month,year);
+		printCalendar(year, month, dayOfMonth);
 		//dayOfWeek();
 		//dayOfWeek(2019, 11, 8);
 		

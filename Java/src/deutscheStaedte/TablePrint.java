@@ -92,10 +92,10 @@ public class TablePrint  {
 		}
 		printRahmen(columnsRange.size(),columnsRange,columnsBreite);//Rahmenlinie unter 
 		
-		// die Gesamtbevölkerung finden	-----------------------------------------------------------------------------	
+	// die Gesamtbevölkerung finden	-----------------------------------------------------------------------------	
 				String str= "";
 				 int k = 2;
-				 long Gesamtbevölkerung=0;
+				 long TotalPapulation=0;
 				 	for (int i = 2; i < rows.size()-2; i++) {
 				    	
 				    	Elements columns = rows.get(i).select("td"); //td , th header
@@ -103,10 +103,10 @@ public class TablePrint  {
 				    	str =  columns.get((k+9)).text().replace(".", "");
 				    	
 				    	
-				    	Gesamtbevölkerung = Gesamtbevölkerung + Long.parseLong(str);
+				    	TotalPapulation = TotalPapulation + Long.parseLong(str);
 				    	
 					}
-				System.out.println(Gesamtbevölkerung);
+				System.out.println(TotalPapulation);
 				System.out.println();
 				
 		}
