@@ -4,6 +4,8 @@ import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -21,20 +23,39 @@ public class Kalendar {
 		
 		//LocalDate date = LocalDate.of(year, month, dayOfMonth);
 		
-		//printCalendar(year, month,dayOfMonth);
+		printCalendar( month,year);
 		//dayOfWeek();
-		dayOfWeek(2019, 11, 8);
+		//dayOfWeek(2019, 11, 8);
 		
 
 	
 	}
 	
-	static void dayOfWeek(int year,int month,int dayOfMonth) {
-		Calendar calendar = GregorianCalendar.getInstance(Locale.GERMANY);
+static void printCalendar(int month, int year) {
 		
-		calendar.setFirstDayOfWeek(Calendar.MONDAY);
-		calendar.set(year, month, dayOfMonth);
-		System.out.println(calendar.get(Calendar.DAY_OF_WEEK));
+		LocalDate date = LocalDate.of(year, month, 1);
+		
+		System.out.println("-------------------------");
+		DateTimeFormatter fmtTitle = DateTimeFormatter.ofPattern("MMMM y");
+		System.out.println( fmtTitle.format(date) );
+		
+		System.out.println("-------------------------");
+		
+		DateTimeFormatter fmtDay = DateTimeFormatter.ofPattern("dd EEEE");
+		
+		int daysInMonth = date.lengthOfMonth();
+		
+		for (int i = 1; i <= daysInMonth; i++) {
+			System.out.println( fmtDay.format(date) );
+			date = date.plusDays(1);
+		}
+		
+		System.out.println("-------------------------");
+	}
+	static void dayOfWeek(int year,int month,int dayOfMonth) {
+		Calendar myDate = Calendar.getInstance();
+		int dow = myDate.get (Calendar.DAY_OF_WEEK);
+
 	}
 	static void printCalendar(int year,int month,int dayOfMonth){
 		System.out.println(getMonthFromInt(month) + " " + year);
