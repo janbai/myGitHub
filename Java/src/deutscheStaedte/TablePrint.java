@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class TablePrint  {
@@ -52,15 +53,23 @@ public class TablePrint  {
 	}	
 	public void printListFromWeb (String urlName, List<Integer> columnsRange,List<Integer> columnsBreite) throws IOException {
 		Document doc = getURL(urlName);
+		// find the number of tables -----------------------------------
+		Elements alleTabellen = doc.getElementsByTag("table");
+		System.out.println("Tabellen gefunden: " + alleTabellen.size());
+		Element table =  alleTabellen.get(0);
+		
+		Elements alleZeilen = table.getElementsByTag("tr");
+		System.out.println("Zeilen: " + alleZeilen.size()); // 85
+		
 		
 		// Print Title-----------------------------------
 		String title = doc.title();
-	    System.out.println("Title: " + title);
-	    System.out.println();
+	    	System.out.println("Title: " + title);
+	    		System.out.println();
 	    //------------------------------------------
 	    
 	    Elements rows = new Elements();
-		rows = doc.select("table.wikitable:nth-child(19) > tbody > tr"); //table.wikitable:nth-child(19) > right click/ kopieren/ CSS-Selktor    //table.wikitable:nth-child(19)
+			rows = doc.select("table.wikitable:nth-child(19) > tbody > tr"); //table.wikitable:nth-child(19) > right click/ kopieren/ CSS-Selktor    //table.wikitable:nth-child(19)
 	 	
 		// Print Header ---------------------------------------------------------------------------- 	
 			int f = 0;																					
