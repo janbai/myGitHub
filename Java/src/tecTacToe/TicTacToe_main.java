@@ -1,16 +1,25 @@
 package tecTacToe;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicTacToe_main {
 	
-	private static int move() {
+	private static Scanner scanner;
 
-		 Scanner scanner = new Scanner(System.in);
-		
-		 int p= scanner.nextInt();
-		 return p;
+
+	private static int move() {
+		int p = 0;
+		try {
+			scanner = new Scanner(System.in);
+			p = scanner.nextInt();
+		} catch  (InputMismatchException e) {
+			System.out.println("Eingabefehler! Es soll doch eine Zahl sein!");
+			
+		}
+		return p;
 	}
+	
 	private static int[] position(int x) {
 		int[] pos= new int[2];
 		int y= 0;
