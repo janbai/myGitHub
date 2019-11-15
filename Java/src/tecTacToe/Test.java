@@ -15,6 +15,9 @@ public class Test {
 	    final List<Integer> corners =  Arrays.asList(a1);
 	    final List<Integer> sides =  Arrays.asList(a2);
 	   
+	    
+	    
+	    
 	  //  final List<Integer> cornerUndSides =  corners+ sides;
 	 
 		//System.out.println(corners.indexOf(1));

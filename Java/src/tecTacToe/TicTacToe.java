@@ -22,6 +22,7 @@ final List<Integer> corners =  Arrays.asList(a1);
 final List<Integer> sides =  Arrays.asList(a2); 
 
 
+
 public TicTacToe()
 { 
     brettspiel = new char[3][3]; 
