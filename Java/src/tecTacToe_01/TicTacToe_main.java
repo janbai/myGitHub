@@ -1,4 +1,4 @@
-package tecTacToe;
+package tecTacToe_01;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -53,7 +53,9 @@ public static void main(String[] args)
 {
 	TicTacToe spiel = new TicTacToe();
 	spiel.printwelcome();
-	while (!spiel.istBrettspielVoll())
+	//spiel.printBoard();
+	/*
+	while (!spiel.printBoard();)
 	{
 		System.out.print("Spieler(" + player + ") wählen : ");
 			
@@ -78,7 +80,7 @@ public static void main(String[] args)
 				}
 			if (checkPlace) player = (player ==1) ? 2 : 1;
 	}
- 								
+ 			*/					
 }// end of main
 
 }
