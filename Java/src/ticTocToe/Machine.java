@@ -1,15 +1,10 @@
 package ticTocToe;
 
-import java.util.Arrays;
-import java.util.List;
 
 public class Machine {
 
-	private final char blank= '-';
 	Position pos = new Position();
-	
-	
-	
+
 	public Position strategy(Board board) {
 		Position markPos;
 		
@@ -62,7 +57,7 @@ public class Machine {
 	
 public Position checkRowsToMark(char currentMark, Board board) 
 {
-	Position[] p = board.getPositions();	
+	Position[] p = board.getAllPositions();	
 	
 	Position rowPos= checkLine1(currentMark, p[0], p[1], p[2]);
 	
@@ -75,7 +70,7 @@ public Position checkRowsToMark(char currentMark, Board board)
 public Position checkColumnsToMark(char currentMark, Board board) 
 {
 	
-	Position[] p = board.getPositions();	
+	Position[] p = board.getAllPositions();	
 	
 	Position colPos= checkLine1(currentMark, p[0], p[3], p[6]);
 	if(! colPos.isChance()) colPos= checkLine1(currentMark, p[1], p[4], p[7]);
@@ -87,7 +82,7 @@ public Position checkColumnsToMark(char currentMark, Board board)
 public Position checkDiagonalToMark(char currentMark, Board board) 
 {
 	
-	Position[] p = board.getPositions();
+	Position[] p = board.getAllPositions();
 	
 		Position diaPos= checkLine1(currentMark, p[0], p[4], p[8]);
 		if(! diaPos.isChance()) diaPos= checkLine1(currentMark, p[2], p[4], p[6]);

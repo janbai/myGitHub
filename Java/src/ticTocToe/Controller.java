@@ -33,7 +33,7 @@ public class Controller {
 //-------------------------------------------------------------	
 public Position getFreeCorner (Board board) 	
 { 
-	Position [] p = board.getPositions();
+	Position [] p = board.getAllPositions();
 	
 	for (int i : corners) {
 		if(p[i-1].getCurrentMark()=='-') {
@@ -48,7 +48,7 @@ public Position getFreeCorner (Board board)
 public Position getRandomFreeCorner(Board board) 
 {
 	List<Position> freeCorner = new ArrayList<>();
-	Position [] p = board.getPositions();
+	Position [] p = board.getAllPositions();
 
 	for (int x : corners) 
 	{
@@ -71,7 +71,7 @@ public Position getRandomFreeCorner(Board board)
 public Position getRandomFreeSide(Board board) 
 {
 	List<Position> freeSides = new ArrayList<>();
-	Position [] p = board.getPositions();
+	Position [] p = board.getAllPositions();
 
 	for (int x : sides) 
 	{
@@ -88,7 +88,7 @@ public Position getRandomFreeSide(Board board)
 	//getFreeSide
 	public Position getFreeSide (Board board) 	
 	{ 
-		Position [] p = board.getPositions();
+		Position [] p = board.getAllPositions();
 		
 		for (int i : sides) {
 			if(p[i-1].getCurrentMark()=='-') {
@@ -113,7 +113,7 @@ private final String gameOver 				= "Game Over!";
 private final String IllegalNummbers		= "diese Nummmer ist ungültig!";
 private final String tryAgain 				= "Versuchen Sie es noch einmal: ";
 
-
+//public void ungültigeNummer() 	{System.out.println("diese Nummmer ist ungültig, Versuchen Sie es noch einmal.");}
 public void IllegalNummbers() 				{boxBorder(IllegalNummbers);}
 public void mismatchInput() 				{boxBorder(mismatchInput);}
 public void gameProcess(int player) 		{
@@ -141,6 +141,7 @@ void boxBorder(String text)
 	System.out.printf("%s%n%s%s%s%n%s%n", line, left, text , right, line); 
 }
 	
+
 public void welcome(Board board)
 {
 	
