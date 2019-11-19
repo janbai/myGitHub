@@ -1,4 +1,4 @@
-package ticTocToe;
+package tecTacToe_02;
 
 public class Board {
 
