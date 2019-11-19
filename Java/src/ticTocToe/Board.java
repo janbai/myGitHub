@@ -84,6 +84,53 @@ public int getCellNo(Position p)
 	return 0;
 }
 //-------------------------------------------------------------------------	
+public Position getPosition (Board board, int x) {
+	Position p  = new Position();
+	int y= 0;
+	
+	for (int row = 0; row < 3; row++) 
+	{
+		for (int column = 0; column < 3; column++) 
+		{ 
+			y++;
+			if(y ==x) 
+			{
+			p.setRow(row); 
+			p.setColumn(column);
+			char currentMark = board.get(row, column);
+			p.setCurrentMark(currentMark);
+			
+			if (currentMark == blank) 
+			{
+				p.setChance(true);
+			}else 
+			{
+				p.setChance(false);
+			}
+			return p;
+			}
+		} 
+	}
+	return null;
+}
+
+//-------------------------------------------------------------------------
+public boolean isBoardFull() 
+{ 
+	boolean istVoll = true;
+	for (int i = 0; i < 3; i++) 
+	{
+		for (int j = 0; j < 3; j++) 
+		{ 
+			if (board[i][j] == blank) 
+			{
+				istVoll = false;
+			}
+		}
+	}
+	return istVoll;
+} 
+//-------------------------------------------------------------------------	
 public void printBoard()
 {
 	int y=1; 
@@ -116,22 +163,7 @@ public void printBoard()
 		rahmen();
 	}
 } 
-public boolean isBoardFull() 
-{ 
-	boolean istVoll = true;
-	for (int i = 0; i < 3; i++) 
-	{
-		for (int j = 0; j < 3; j++) 
-		{ 
-			if (board[i][j] == blank) 
-			{
-				istVoll = false;
-			}
-		}
-	}
-	return istVoll;
-} 
-
+//-------------------------------------------------------------------------	
 void rahmen() {System.out.printf("%s%30s%n","-------------","-------------"); }
 	
-}
+}// end of board

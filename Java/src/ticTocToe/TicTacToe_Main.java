@@ -13,25 +13,22 @@ static int player= 1;
 
 private static int eingabeNummer() 
 {
-	
 	int p = 0;
 	while(p<1 || p>9) {
 		try 
 		{
 			scanner = new Scanner(System.in);
 			p = scanner.nextInt();
-			} 
-		catch  
-		(InputMismatchException e)   { message.mismatchInput();}
-			
-		if(message.legalNummbers(p)) { message.IllegalNummbers(); message.tryAgain();}
-		
-	}
+			if(message.legalNummbers(p)) 	{ message.IllegalNummbers(); message.tryAgain();}
+		} 
+		catch (InputMismatchException e)  	{ message.mismatchInput(); message.tryAgain();}
+		}
 	return p;
-	}
+}
 
-
-	public static void main(String[] args) throws InterruptedException {
+//--------------------------------Tec Tac Toe main----------------------------------------------------------------
+	
+public static void main(String[] args) throws InterruptedException {
 		
 		TicTacToe game = new TicTacToe();
 		Board board = new Board(3,3);
@@ -48,40 +45,40 @@ private static int eingabeNummer()
 			message.gameProcess(player);
 			
 			if (player==2) {
-				TimeUnit.SECONDS.sleep(2);
+				TimeUnit.SECONDS.sleep(1);
 				System.out.println(board.getCellNo(pos));
 				row = pos.getRow();
 				col = pos.getColumn();
-			}else {
+			}else 
+			{
 				scnanner= eingabeNummer();
 				row = board.getCoordinate(scnanner)[0];
 				col = board.getCoordinate(scnanner)[1];
-				}
+			}
 				boolean checkPlace = game.checkPlace(board, row, col); 
 				game.placeMark(board, row, col);
 				game.changePlayer();
 				board.printBoard(); 
 				
-				if (game.checkGewinner(board) && player == 1) { 
-					
+				if (game.checkGewinner(board) && player == 1) 
+				{ 
 					message.congradulation();
 					System.exit(0);
-					}else if (game.checkGewinner(board) && player == 2) { 
-						
-						message.gameOver();
-						System.exit(0);
-						}
+				}else if (game.checkGewinner(board) && player == 2) 
+				{
+					message.gameOver();
+					System.exit(0);
+				}
 				else if (board.isBoardFull()) 
 				{
 					message.gameDraw();
 					System.exit(0);
-					}
+				}
+				
 				if (checkPlace) player = (player ==1) ? 2 : 1;
 				if (player == 2) pos = comp.strategy(board);
-				
-				
 		}
 		
-	}
+	}//end of main
 
 }

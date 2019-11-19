@@ -7,43 +7,38 @@ import java.util.Random;
 
 public class Controller {
 	
-	Random random = new Random();
+Random random = new Random();
 	
-	
-	private Integer[] corners = {1,3,7,9}; 
-	private Integer[] sides = {2,4,6,8};
-	private Integer[] a =  {1,2,3,4,5,6,7,8,9};
-	private List<Integer> legalNummbers =  Arrays.asList(a);
-	private List<Integer> corner1 =  Arrays.asList(corners);
-	private List<Integer> side1 =  Arrays.asList(sides);
-    
-	
-	
-			
-	public boolean legalNummbers(int x) { return (! legalNummbers.contains(x)) ?  true :  false;}
-			
+private Integer[] corners 					= {1,3,7,9}; 
+private Integer[] sides 					= {2,4,6,8};
+private Integer[] validNo 					=  {1,2,3,4,5,6,7,8,9};
+private List<Integer> legalNummbers 		=  Arrays.asList(validNo);
 
-	public Integer getOpposite(int x) 	{ return 10-x;}
-	public Boolean IsCenter (int x) 	{ return (x==5)? true : false;}
-	
-	public Boolean IsCorner (int x) 	{ return corner1.contains(x) ? true : false;}
-	public Boolean IsSide (int x) 		{ return side1.contains(x) ? true : false;}
-		
-	public Boolean IsCenterFree (Board board) 	{ return (board.get(1, 1)=='-')? true : false;}
+private final String IllegalNummbers		= "diese Nummmer ist Illegal!";		
+private final String mismatchInput 			= "Eingabefehler! Es soll doch eine Zahl sein!";
+private final String tryAgain 				= "Versuchen Sie es noch einmal: ";
+private final String gameDraw 				= "Anscheinend haben wir ein Unentschieden!";
+private final String congratulation 		= "Herzliche Glückwünsche ! Du bist ein Gewinner";
+private final String gameOver 				= "Game Over!";
+private final String UsedNumber				= "Diese Nummer ist besetzt.";
+
+public Integer getOpposite(int x) 			{ return 10-x;}
+public Boolean IsCenter (int x) 			{ return (x==5)? true : false;}
+
+public Boolean IsCenterFree (Board board) 	{ return (board.get(1, 1)=='-')? true : false;}
+
+public boolean legalNummbers(int x) 		{ return (! legalNummbers.contains(x)) ?  true :  false;}
+
+public void UsedNumber() 					{boxBorder(UsedNumber);}
+
+public void IllegalNummbers() 				{boxBorder(IllegalNummbers);}
+public void mismatchInput() 				{boxBorder(mismatchInput);}
+public void tryAgain() 						{System.out.print(tryAgain);}
+
+public void congradulation() 				{boxBorder(congratulation);}
+public void gameOver() 		 				{boxBorder(gameOver);}
+public void gameDraw() 		 				{boxBorder(gameDraw);}
 //-------------------------------------------------------------	
-public Position getFreeCorner (Board board) 	
-{ 
-	Position [] p = board.getAllPositions();
-	
-	for (int i : corners) {
-		if(p[i-1].getCurrentMark()=='-') {
-			return p[i-1];
-		}
-	}
-	return null;
-}
-//-------------------------------------------------------------
-
 @SuppressWarnings("unused")
 public Position getRandomFreeCorner(Board board) 
 {
@@ -55,18 +50,15 @@ public Position getRandomFreeCorner(Board board)
 		if(p[x-1].getCurrentMark()=='-') 
 		{
 		freeCorner.add(p[x-1]);
-		
 		}
-		
 	}
-	
-	if (freeCorner != null) {
+	if (freeCorner != null) 
+	{
 		return freeCorner.get(random.nextInt(freeCorner.size()));
 	}
 	return null;
 }	
 //-------------------------------------------------------------	
-	
 @SuppressWarnings("unused")
 public Position getRandomFreeSide(Board board) 
 {
@@ -81,55 +73,23 @@ public Position getRandomFreeSide(Board board)
 	
 	return null;
 }	
-
+//-------------------------------------------------------------	
+public boolean isOppositeBlocked(Board board, Position p) {
+	int cellNo = board.getCellNo(p);
+	int OppCell = getOpposite(cellNo);
+	Position opp = board.getPosition(board, OppCell);
 	
-	
-	
-	//getFreeSide
-	public Position getFreeSide (Board board) 	
-	{ 
-		Position [] p = board.getAllPositions();
-		
-		for (int i : sides) {
-			if(p[i-1].getCurrentMark()=='-') {
-				return p[i-1];
-			}
-		}
-		return null;
-	}
-	
-	
-	public boolean isOppositeBlocked(Position p) {
-		
-		return false;
-	}
-
-
-
-private final String mismatchInput 			= "Eingabefehler! Es soll doch eine Zahl sein!";
-private final String gameDraw 				= "Anscheinend haben wir ein Unentschieden!";
-private final String congratulation 		= "Herzliche Glückwünsche ! Du bist ein Gewinner";
-private final String gameOver 				= "Game Over!";
-private final String IllegalNummbers		= "diese Nummmer ist ungültig!";
-private final String tryAgain 				= "Versuchen Sie es noch einmal: ";
-
-//public void ungültigeNummer() 	{System.out.println("diese Nummmer ist ungültig, Versuchen Sie es noch einmal.");}
-public void IllegalNummbers() 				{boxBorder(IllegalNummbers);}
-public void mismatchInput() 				{boxBorder(mismatchInput);}
+	return opp.isChance();
+}
+//-------------------------------------------------------------	
 public void gameProcess(int player) 		{
 	if (player==1) {
 		System.out.print("Spieler(" + player + ") choose nummber : ");
 	}else {
-		System.out.print("Spieler(" + player + ") I will choose : ") ;
+		System.out.print("Spieler(" + player + ") I will choose : ");
 	}
 }
-public void tryAgain() 						{System.out.print(tryAgain);}
-
-public void congradulation() 				{boxBorder(congratulation);}
-public void gameOver() 		 				{boxBorder(gameOver);}
-public void gameDraw() 		 				{boxBorder(gameDraw);}
-
-
+//-------------------------------------------------------------	
 void boxBorder(String text) 
 { 
 	String str1 = "+";
@@ -140,11 +100,72 @@ void boxBorder(String text)
 	String line = "+" + new String(new char[a]).replace("\0", "-") + "+";
 	System.out.printf("%s%n%s%s%s%n%s%n", line, left, text , right, line); 
 }
+//-------------------------------------------------------------		
+static void boxBorder(String[] text) 
+{ 
+		int longestString = 0;
+		for (int i = 0; i < text.length-1; i++) 
+		{
+			longestString = (text[i].length()>text[i+1].length()) ? text[i].length() : text[i+1].length();
+		}
+		
+		int linLen = longestString + 10;
+		String line = "+" + new String(new char[linLen]).replace("\0", "-") + "+";
+		System.out.print("\t\t");
+		System.out.printf("%s%n", line); 
+		
+		for (int i = 0; i < text.length; i++) {
+			System.out.print("\t\t");
+			int strLen = text[i].length();
+			
+			int alignment_left = (linLen - strLen)/2;
+			int alignment_right = (linLen - strLen)/2 + (linLen +2 - strLen)%2;
+			
+			String l = new String(new char[alignment_left]);
+			String r = new String(new char[alignment_right]);
+			System.out.printf("%s%s%s%n","|", l +text[i] +r ,"|");
+			
+	}
+		System.out.print("\t\t");
+		System.out.printf("%s%n", line); 
+}
+//-------------------------------------------------------------	
+static void boxBorder(String[] text, int alignment, int tab) 
+{
+	int longestString = 0;
+	for (int i = 0; i < text.length-1; i++) 
+	{
+		longestString = (text[i].length()>text[i+1].length()) ? text[i].length() : text[i+1].length();// find the longest string in array
+	}
 	
+	int linLen = longestString + alignment;
+	String line = "+" + new String(new char[linLen]).replace("\0", "-") + "+";
+	String tabNo=""	;
+	
+	if(tab>0) { for (int i = 0; i < tab; i++) {	tabNo +="\t";}} //tab Nr.
+		
+	System.out.print(tabNo);
+	
+	System.out.printf("%s%n", line); //--------------------------------------Rahmenlinie oben
+	
+	for (int i = 0; i < text.length; i++) {
+		System.out.print(tabNo);
+		int strLen = text[i].length();
+		
+		int alignment_left = (linLen - strLen)/2;
+		int alignment_right = (linLen - strLen)/2 + (linLen +2 - strLen)%2;
+		
+		String l = new String(new char[alignment_left]);
+		String r = new String(new char[alignment_right]);
+		System.out.printf("%s%s%s%n","|", l +text[i] +r ,"|");
+	}
+	System.out.print(tabNo);
 
+	System.out.printf("%s%n", line); //--------------------------------------Rahmenlinie unter
+}
+//-------------------------------------------------------------	
 public void welcome(Board board)
 {
-	
 	System.out.printf("%33s%n","+-------------------------+");
 	System.out.printf("%33s%n","|        Willkommen       |");
 	System.out.printf("%33s%n","|           im            |");
@@ -155,9 +176,8 @@ public void welcome(Board board)
 	board.printBoard(); 
 	System.out.println("Geben Sie bitte das Positionsnummer ein.");
 	System.out.println();
-	
 }
-	
+//-------------------------------------------------------------		
 	
 	
 }
