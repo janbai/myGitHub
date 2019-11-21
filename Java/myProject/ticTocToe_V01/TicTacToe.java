@@ -1,4 +1,4 @@
-package tecTacToe_02;
+package ticTocToe_V01;
 
 public class TicTacToe {
 
@@ -27,7 +27,7 @@ private boolean checkZeilen(Board board)
 	}
 	return false;
 }
-
+//----------------------------------------------------------------------------------------------
 private boolean checkSpalten(Board board)
 {
 	for (int column = 0; column < 3; column++) 
@@ -68,7 +68,6 @@ public boolean checkPlace(Board board, int row, int column)
 	}
 	return false;
 } 
-
 //----------------------------------------------------------------------------------------------	
 public void placeMark(Board board,int row, int column) 
 {
@@ -78,7 +77,6 @@ public void placeMark(Board board,int row, int column)
 		
 	}else 
 		new Controller().UsedNumber();;
-		
 }
 
 }//end of Tic Tac Toe class

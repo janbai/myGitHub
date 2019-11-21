@@ -8,9 +8,6 @@ private char currentMark;
 private boolean chance;
 private boolean goodMove;
 
-
-
-
 public Position() {}
 
 public Position(int row, int column) 
@@ -42,7 +39,6 @@ public boolean isChance() 						{return chance;}
 
 public void setChance(boolean chance) 			{this.chance = chance;}
 	
-
 public Position(boolean goodMove) 				{this.goodMove = goodMove;}
 
 public boolean isGoodMove() 					{return goodMove;}

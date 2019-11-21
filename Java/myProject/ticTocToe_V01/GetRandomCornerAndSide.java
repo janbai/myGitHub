@@ -12,13 +12,14 @@ private static Integer[] corners 				= {1,3}; //1,3,7,9
 private static Integer[] sides 					= {}; //2,4,6,8
 private static Integer[] validNo 					=  {1,2,3,4,5,6,7,8,9};
 public static Integer getOpposite(int x) 			{ return 10-x;}
+static Model model = new Model();
 	static Random random = new Random();
 //-------------------------------------------------------------	
 
 public static  List<Position> getFreeCell (Board board) 
 {
 	List<Position> freeCell = new ArrayList<>();
-	Position [] p = board.getAllPositions();
+	Position [] p = model.getAllPositions(board);
 
 	for (int x : validNo) 
 	{
@@ -47,9 +48,9 @@ public static  List<Position> getOpenFreeCell (Board board, List<Position> freeC
 //-------------------------------------------------------------	
 	
 public static boolean isOppositeBlocked(Board board, Position p) {
-	int cellNo = board.getCellNo(p);
+	int cellNo = model.getCellNo(p);
 	int OppCell = getOpposite(cellNo);
-	Position opp = board.getPosition(board, OppCell);
+	Position opp = model.getPosition(board, OppCell);
 	
 	return (opp.getCurrentMark()== '-')? true: false;
 }	
@@ -60,7 +61,7 @@ public static boolean isOppositeBlocked(Board board, Position p) {
 public static  List<Position> getFreeRandomCorners  (Board board) throws UnsupportedOperationException
 {
 	List<Position> freeCorner = new ArrayList<>();
-	Position [] p = board.getAllPositions();
+	Position [] p = model.getAllPositions(board);
 
 	for (int x : corners) 
 	{
@@ -76,7 +77,7 @@ public static  List<Position> getFreeRandomCorners  (Board board) throws Unsuppo
 public static  List<Position> getFreeRandomSides (Board board) 
 {
 	List<Position> freeSides = new ArrayList<>();
-	Position [] p = board.getAllPositions();
+	Position [] p = model.getAllPositions(board);
 
 	for (int x : sides) 
 	{
@@ -90,9 +91,11 @@ public static  List<Position> getFreeRandomSides (Board board)
 static void printList(List<Position> list){
 	
 	for (Position position : list) {
-		System.out.print(position.getRow() + " ");
-		System.out.print(position.getColumn() + " ");
-		System.out.println(new Board(position.getRow(),position.getColumn()).getCellNo(position));
+		int r = position.getRow();
+		int c= position.getColumn(); 
+		System.out.print(r + " " + c);
+		
+		
 	}
 	
 	Collections.shuffle(list);

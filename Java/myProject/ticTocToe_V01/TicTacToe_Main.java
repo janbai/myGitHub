@@ -2,39 +2,38 @@ package ticTocToe_V01;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
+
 
 public class TicTacToe_Main {
-static Controller message = new Controller();
 	
+public static Controller message = new Controller();
+
 private static Scanner scanner;
-static int player= 1;
 
+public static int player= 1;
 
-private static int eingabeNummer() 
+private static int inputNr() 
 {
 	int p = 0;
 	while(p<1 || p>9) {
-		try 
-		{
-			scanner = new Scanner(System.in);
-			p = scanner.nextInt();
-			if(message.legalNummbers(p)) 	{ message.IllegalNummbers(); message.tryAgain();}
-		} 
-		catch (InputMismatchException e)  	{ message.mismatchInput(); message.tryAgain();}
-		}
+		try { scanner = new Scanner(System.in); p = scanner.nextInt();
+			if(message.legalNummbers(p)) 	{ message.IllegalNummbers(); message.tryAgain();}} 
+		catch (InputMismatchException e)  	{ message.mismatchInput(); message.tryAgain();}}
 	return p;
 }
-
+	
 //--------------------------------Tec Tac Toe main----------------------------------------------------------------
 	
 public static void main(String[] args) throws InterruptedException {
 		
 		TicTacToe game = new TicTacToe();
 		Board board = new Board(3,3);
-		board.reset(); 
-		message.welcome(board);
-				
+		Model model	= new Model();
+		message.welcome();
+		
+		board.reset();
+		board.printBoard(); 
+		message.firstMassage();
 		Machine comp = new Machine();
 		Position pos = new Position();
 	
@@ -45,15 +44,14 @@ public static void main(String[] args) throws InterruptedException {
 			message.gameProcess(player);
 			
 			if (player==2) {
-				//TimeUnit.SECONDS.sleep(1);
-				System.out.println(board.getCellNo(pos));
+				System.out.println(model.getCellNo(pos));
 				row = pos.getRow();
 				col = pos.getColumn();
 			}else 
 			{
-				scnanner= eingabeNummer();
-				row = board.getCoordinate(scnanner)[0];
-				col = board.getCoordinate(scnanner)[1];
+				scnanner= inputNr();
+				row = model.getCoordinate(scnanner)[0];
+				col = model.getCoordinate(scnanner)[1];
 			}
 				boolean checkPlace = game.checkPlace(board, row, col); 
 				game.placeMark(board, row, col);
@@ -76,7 +74,7 @@ public static void main(String[] args) throws InterruptedException {
 				}
 				
 				if (checkPlace) player = (player ==1) ? 2 : 1;
-				if (player == 2) pos = comp.strategy_01(board);
+				if (player == 2) pos = comp.strategy(board);
 		}
 		
 	}//end of main

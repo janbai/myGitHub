@@ -1,4 +1,4 @@
-package tecTacToe_02;
+package ticTocToe_V01;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,13 +7,9 @@ import java.util.Random;
 
 public class Controller {
 	
-Random random = new Random();
-
-private Integer[] corners 					= {1,3,7,9}; 
-private Integer[] sides 					= {2,4,6,8};
 private Integer[] validNo 					=  {1,2,3,4,5,6,7,8,9};
 private List<Integer> legalNummbers 		=  Arrays.asList(validNo);
-
+public boolean legalNummbers(int x) 		{ return (! legalNummbers.contains(x)) ?  true :  false;}	
 private final String IllegalNummbers		= "diese Nummmer ist Illegal!";		
 private final String mismatchInput 			= "Eingabefehler! Es soll doch eine Zahl sein!";
 private final String tryAgain 				= "Versuchen Sie es noch einmal: ";
@@ -21,103 +17,26 @@ private final String gameDraw 				= "Anscheinend haben wir ein Unentschieden!";
 private final String congratulation 		= "Herzliche Glückwünsche ! Du bist ein Gewinner";
 private final String gameOver 				= "Game Over!";
 private final String UsedNumber				= "Diese Nummer ist besetzt.";
-
-public Integer getOpposite(int x) 			{ return 10-x;}
-public Boolean IsCenter (int x) 			{ return (x==5)? true : false;}
-
-public Boolean IsCenterFree (Board board) 	{ return (board.get(1, 1)=='-')? true : false;}
-
-public boolean legalNummbers(int x) 		{ return (! legalNummbers.contains(x)) ?  true :  false;}
+private String[] welcome 					= {"Willkommen", "im", "Tic Tac Toe"};
+private String firstMessage 				= "Geben Sie bitte das Positionsnummer ein.";
 
 public void UsedNumber() 					{boxBorder(UsedNumber);}
-
 public void IllegalNummbers() 				{boxBorder(IllegalNummbers);}
 public void mismatchInput() 				{boxBorder(mismatchInput);}
 public void tryAgain() 						{System.out.print(tryAgain);}
-
 public void congradulation() 				{boxBorder(congratulation);}
 public void gameOver() 		 				{boxBorder(gameOver);}
 public void gameDraw() 		 				{boxBorder(gameDraw);}
-//-------------------------------------------------------------	
-public  List<Position> getFreeCorner(Board board) 
+public void welcome () 						{boxBorder( 15, 1, welcome);}
+public void header () 						{System.out.printf("%11s%33s%n","Spielfeld","Positionsnummer");}
+public void rahmen() 						{System.out.printf("%s%30s%n","+---+---+---+","+---+---+---+");}
+public void firstMassage () 				{System.out.println(firstMessage);}
+	
+//-------------------------------------------------------------
+public void gameProcess(int player) 		
 {
-	List<Position> freeCorner = new ArrayList<>();
-	Position [] p = board.getAllPositions();
-
-	for (int x : corners) 
-	{
-		if(p[x-1].getCurrentMark()=='-') 
-		{
-		freeCorner.add(p[x-1]);
-		}
-	}
-	
-	return freeCorner;
-}	
-//-------------------------------------------------------------	
-public  List<Position> getFreeSide (Board board) 
-{
-	List<Position> freeSides = new ArrayList<>();
-	Position [] p = board.getAllPositions();
-
-	for (int x : sides) 
-	{
-		if(p[x-1].getCurrentMark()=='-') { freeSides.add((p[x-1]));}
-	}
-	
-	
-	return freeSides;
-}	
-//-------------------------------------------------------------	
-@SuppressWarnings("unused")
-public Position getRandomFreeCorner(Board board) 
-{
-	List<Position> freeCorner = new ArrayList<>();
-	Position [] p = board.getAllPositions();
-
-	for (int x : corners) 
-	{
-		if(p[x-1].getCurrentMark()=='-') 
-		{
-		freeCorner.add(p[x-1]);
-		}
-	}
-	if (freeCorner != null) 
-	{
-		return freeCorner.get(random.nextInt(freeCorner.size()));
-	}
-	return null;
-}	
-//-------------------------------------------------------------	
-@SuppressWarnings("unused")
-public Position getRandomFreeSide(Board board) 
-{
-	List<Position> freeSides = new ArrayList<>();
-	Position [] p = board.getAllPositions();
-
-	for (int x : sides) 
-	{
-		if(p[x-1].getCurrentMark()=='-') { freeSides.add((p[x-1]));}
-	}
-	if (freeSides != null) { return freeSides.get(random.nextInt(freeSides.size()));}
-	
-	return null;
-}	
-//-------------------------------------------------------------	
-public boolean isOppositeBlocked(Board board, Position p) {
-	int cellNo = board.getCellNo(p);
-	int OppCell = getOpposite(cellNo);
-	Position opp = board.getPosition(board, OppCell);
-	
-	return (opp.getCurrentMark()== '-')? true: false;
-}
-//-------------------------------------------------------------	
-public void gameProcess(int player) 		{
-	if (player==1) {
-		System.out.print("Spieler(" + player + ") choose nummber : ");
-	}else {
-		System.out.print("Spieler(" + player + ") I will choose : ");
-	}
+	if (player==1) {System.out.print("Spieler(" + player + ") choose nummber : ");}
+	else { System.out.print("Spieler(" + player + ") I will choose : ");}
 }
 //-------------------------------------------------------------	
 void boxBorder(String text) 
@@ -160,7 +79,7 @@ static void boxBorder(String[] text)
 		System.out.printf("%s%n", line); 
 }
 //-------------------------------------------------------------	
-static void boxBorder(String[] text, int alignment, int tab) 
+static void boxBorder( int alignment, int tab, String[] text) 
 {
 	int longestString = 0;
 	for (int i = 0; i < text.length-1; i++) 
@@ -194,20 +113,5 @@ static void boxBorder(String[] text, int alignment, int tab)
 	System.out.printf("%s%n", line); //--------------------------------------Rahmenlinie unter
 }
 //-------------------------------------------------------------	
-public void welcome(Board board)
-{
-	System.out.printf("%33s%n","+-------------------------+");
-	System.out.printf("%33s%n","|        Willkommen       |");
-	System.out.printf("%33s%n","|           im            |");
-	System.out.printf("%33s%n","|       Tic Tac Toc       |");
-	System.out.printf("%33s%n","+-------------------------+");
-	System.out.println();
-	System.out.printf("%11s%33s%n","Spielfeld","Positionsnummer");
-	board.printBoard(); 
-	System.out.println("Geben Sie bitte das Positionsnummer ein.");
-	System.out.println();
-}
-//-------------------------------------------------------------		
-	
 	
 }
