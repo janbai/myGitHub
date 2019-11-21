@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="A-Kapselung"/>
 	<classpathentry kind="src" path="Interfaces"/>
 	<classpathentry kind="src" path="Arrays"/>
+	<classpathentry kind="src" path="Imperativ"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

@@ -1,4 +1,4 @@
-package ticTocToe;
+package ticTocToe_V01;
 
 public class Position {
 
@@ -6,6 +6,8 @@ private int row;
 private int column;
 private char currentMark;
 private boolean chance;
+private boolean goodMove;
+
 
 
 
@@ -40,5 +42,14 @@ public boolean isChance() 						{return chance;}
 
 public void setChance(boolean chance) 			{this.chance = chance;}
 	
+
+public Position(boolean goodMove) 				{this.goodMove = goodMove;}
+
+public boolean isGoodMove() 					{return goodMove;}
+
+public void setGoodMove(boolean goodMove) 		{this.goodMove = goodMove;}
+
+
+
 	
 }

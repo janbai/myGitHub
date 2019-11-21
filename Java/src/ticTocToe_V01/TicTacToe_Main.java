@@ -1,4 +1,4 @@
-package ticTocToe;
+package ticTocToe_V01;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -1,8 +1,8 @@
-package ticTocToe;
+package ticTocToe_V01;
 
 
 public class Machine {
-
+	private final char blank='-';
 Position pos = new Position();
 
 public Position chanceToWin(Board board)		{ return chanceToWinBlock('o', board);}	 	
@@ -188,6 +188,20 @@ public Position checkLine(char currentMark, Position p1, Position p2, Position p
 	if ((p2.getCurrentMark() == '-') && (p1.getCurrentMark() == currentMark) && (p1.getCurrentMark() == p3.getCurrentMark())) 
 		{ p2.setChance(true); return p2;}
 	if ((p3.getCurrentMark() == '-') && (p1.getCurrentMark() == currentMark) && (p1.getCurrentMark() == p2.getCurrentMark())) 
+		{ p3.setChance(true); return p3;}
+	
+	return null;
+}
+//------------------------------------------------------------------------------------------------		
+
+public Position checkOpenLine(char currentMark, Position p1, Position p2, Position p3) 
+{ 
+	if ((p1.getCurrentMark() == currentMark) && (p2.getCurrentMark() == blank) && (p2.getCurrentMark() == p3.getCurrentMark())) 
+		{p1.setGoodMove(true);p1.setGoodMove(true); return p1;}
+	
+	if ((p2.getCurrentMark() == currentMark) && (p1.getCurrentMark() == blank) && (p1.getCurrentMark() == p3.getCurrentMark())) 
+		{ p2.setChance(true); return p2;}
+	if ((p3.getCurrentMark() == currentMark) && (p1.getCurrentMark() == blank) && (p1.getCurrentMark() == p2.getCurrentMark())) 
 		{ p3.setChance(true); return p3;}
 	
 	return null;
