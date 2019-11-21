@@ -7,15 +7,16 @@ public class Schleifen04_SchleifenSchachteln {
 		/*
 		 * 
 		 */
+		int k = 3;
 		for(int i=0; i<5; i++) {
 			
-			int k = 3;
+			
 			while( k < i ) {
 				System.out.println(k++ + " ");
 			}
 			
 		}
-		
+		System.out.println(k);// after print add +1
 		System.out.println();
 		
 		/*
