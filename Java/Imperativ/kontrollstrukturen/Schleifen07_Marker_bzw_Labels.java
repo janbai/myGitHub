@@ -49,7 +49,7 @@ public class Schleifen07_Marker_bzw_Labels {
 				}
 			}
 			
-			System.out.println("i = " + i);
+			System.out.println(">>> i = " + i);
 		}
 		
 		
@@ -76,6 +76,40 @@ public class Schleifen07_Marker_bzw_Labels {
 			
 			System.out.println("i = " + i);
 		}
+		int k = 0;
+		rows:
+			
+			for (int i = 0; i < 10; i++) {
+				k++;
+				if (i==5 || i==3) {
+					System.out.println();
+				k--;
+					continue;
+				}
+				System.out.print("Row No." + k + "- ");
+				
+				columns:
+					for (int j = 0; j < 10; j++) {
+						
+						if (i==3) {
+							
+							continue columns;
+						}
+						
+						
+						if( j==6 || j== 8) {
+							System.out.print(" ");
+							continue;
+						}
+						
+						System.out.print(j);
+						
+				}
+				
+		System.out.println();
+			}
+		
+		
 		
 		
 	} // end of main
