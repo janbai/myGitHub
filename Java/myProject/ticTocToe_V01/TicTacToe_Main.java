@@ -62,6 +62,8 @@ static void playTecTacToe() {
 	
 	board.reset();
 	game.currentActualMark = message.playerMark;
+	counter=0;
+	player= 1;
 	board.printBoard(); 
 	message.chooseMode();
 			
@@ -73,7 +75,9 @@ static void playTecTacToe() {
 }
 //-------------------------------------------------------------------------------
 static void startPlay (int playMode) {
-	player= 1;
+	
+	
+	
 	int row, col;
 	int scanner = 0;
 	

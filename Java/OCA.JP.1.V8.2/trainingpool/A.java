@@ -1,0 +1,24 @@
+package trainingpool;
+
+public class A {
+	
+	    public void doA(int k) throws Exception {  // 0
+	        for(int i=0; i< 10; i++) {
+	            if(i == k) throw new Exception("Index of k is "+i); // 1
+	        }
+	    }
+	    public void doB(boolean f) throws Exception { // 2
+	        if(f) {
+	            doA(15); // 3
+	        }
+	        else return;
+	    }
+	
+	
+	public static void main(String[] args) throws Exception {
+		
+		 A a = new A();
+	        a.doB(args.length>0); // 5
+		
+	}
+}

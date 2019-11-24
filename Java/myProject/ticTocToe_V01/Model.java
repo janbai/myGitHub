@@ -208,7 +208,7 @@ public  List<Position> getFreeCorner(Board board)
 	}
 	return freeCorner;
 }	
-//-------------------------------------------------------------	
+//------------------the methods below have been not used-------------------------------------------	
 public  List<Position> getFreeSide (Board board) 
 {
 	List<Position> freeSides = new ArrayList<>();

@@ -61,7 +61,6 @@ public Position hardMode(Board board,int counter) {
 		{
 			if(model.IsCenterFree(board)) 
 			{
-				System.out.println("IsCenterFree: "+ model.IsCenterFree(board));
 				markPos = new Position(1,1,'o');
 				return markPos;
 			}
