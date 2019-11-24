@@ -1,37 +1,70 @@
 package ticTocToe_V01;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+
 
 public class Controller {
-	
-private Integer[] validNo 					=  {1,2,3,4,5,6,7,8,9};
-private List<Integer> legalNummbers 		=  Arrays.asList(validNo);
-public boolean legalNummbers(int x) 		{ return (! legalNummbers.contains(x)) ?  true :  false;}	
-private final String IllegalNummbers		= "diese Nummmer ist Illegal!";		
+
+public final char blank						= '-';	
+public final char playerMark		 		= 'x'; 
+public final char machineMark				='o';
+public Integer[] validNumber 				= {1,2,3,4,5,6,7,8,9};
+public Integer[] corners 					= {1,3,7,9}; 
+public Integer[] sides 						= {2,4,6,8};
+private Integer[] modeNumber					= {1,2,3};
+private String [] validAnswer				= {"y", "yes", "j", "ja", "n","no","nein","nie"}; 
+ 
+private List<Integer> legalNumbers 			= Arrays.asList(validNumber);
+private List<Integer>legalMode				= Arrays.asList(modeNumber);
+private List<String>legalAnswer				= Arrays.asList(validAnswer);
+
+private final String illegalNumbers			= "Diese Nummer ist illegal!";	
+private final String illegalMode			= "Diese Mode ist illegal!";
+private final String illegalAnswer			= "Dieser Eintrag ist illegal!";
+
 private final String mismatchInput 			= "Eingabefehler! Es soll doch eine Zahl sein!";
+private final String mismatchMode 			= "Eingabefehler! Es soll doch 1, 2 oder 3 sein!";
+private final String mismatchAnswer			= "Eingabefehler! Es soll doch y oder n sein!";
+
 private final String tryAgain 				= "Versuchen Sie es noch einmal: ";
 private final String gameDraw 				= "Anscheinend haben wir ein Unentschieden!";
 private final String congratulation 		= "Herzliche Glückwünsche ! Du bist ein Gewinner";
 private final String gameOver 				= "Game Over!";
-private final String UsedNumber				= "Diese Nummer ist besetzt.";
+private final String usedNumber				= "Diese Nummer ist besetzt.";
 private String[] welcome 					= {"Willkommen", "im", "Tic Tac Toe"};
-private String firstMessage 				= "Geben Sie bitte das Positionsnummer ein.";
+private String  chooseMode					= "Bitte wählen Sie den Spielemodus: ";
+private String gameMode						= "Game Mode : [1]einfach, [2]mittel, [3] hart";
+private String firstMessage 				= "Geben Sie bitte das Positionsnummer ein:";
+private String [] wantcontinueExit			= {"willst du nochmal spielen?","[Y] Spiel nochmal", "zum Verlassen eine beliebige Taste drücken"};
+private String goodbye						= "Danke, dass du das Tic Tac Toe Spiel benutzt. Bis später und auf Wiedersehen.";
+public boolean isIllegalNumbers(int x) 		{ return (! legalNumbers.contains(x)) ?  true :  false;}
+public boolean isIllegalMode(int x)			{ return (! legalMode.contains(x)) ?  true :  false;}
+public boolean isLegalAnswer (String x)		{ return ( legalAnswer.contains(x)) ?  true :  false;}
 
-public void UsedNumber() 					{boxBorder(UsedNumber);}
-public void IllegalNummbers() 				{boxBorder(IllegalNummbers);}
-public void mismatchInput() 				{boxBorder(mismatchInput);}
-public void tryAgain() 						{System.out.print(tryAgain);}
-public void congradulation() 				{boxBorder(congratulation);}
-public void gameOver() 		 				{boxBorder(gameOver);}
-public void gameDraw() 		 				{boxBorder(gameDraw);}
-public void welcome () 						{boxBorder( 15, 1, welcome);}
-public void header () 						{System.out.printf("%11s%33s%n","Spielfeld","Positionsnummer");}
-public void rahmen() 						{System.out.printf("%s%30s%n","+---+---+---+","+---+---+---+");}
-public void firstMassage () 				{System.out.println(firstMessage);}
-	
+public void illegalNumbers() 				{ boxBorder(illegalNumbers);}
+public void illegalMode() 					{ boxBorder(illegalMode);}
+public void illegalAnswer() 				{ boxBorder(illegalAnswer);}
+
+public void mismatchInput() 				{ boxBorder(mismatchInput);}
+public void mismatchMode() 					{ boxBorder(mismatchMode);}
+public void mismatchString() 				{ boxBorder(mismatchAnswer);}
+
+public void usedNumber() 					{ boxBorder(usedNumber);}
+public void tryAgain() 						{ System.out.print(tryAgain);}
+public void congradulation() 				{ boxBorder(congratulation);}
+public void gameOver() 		 				{ boxBorder(gameOver);}
+public void gameDraw() 		 				{ boxBorder(gameDraw);}
+public void welcome () 						{ boxBorder( 10, 1, welcome);}
+public void header () 						{ System.out.printf("%11s%33s%n","Spielfeld","Positionsnummer");}
+public void rahmen() 						{ System.out.printf("%s%30s%n","+---+---+---+","+---+---+---+");}
+public void firstMassage () 				{ System.out.println(firstMessage);}
+public void wantcontinueExit()				{ boxBorder(15,1,wantcontinueExit);}
+public void goodbye()						{ boxBorder(goodbye);}
+
+//-------------------------------------------------------------
+public void chooseMode()					{ boxBorder(gameMode); System.out.print(chooseMode);}
 //-------------------------------------------------------------
 public void gameProcess(int player) 		
 {
@@ -112,6 +145,5 @@ static void boxBorder( int alignment, int tab, String[] text)
 
 	System.out.printf("%s%n", line); //--------------------------------------Rahmenlinie unter
 }
-//-------------------------------------------------------------	
-	
-}
+
+}//end of Controller

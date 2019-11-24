@@ -47,8 +47,6 @@ class K2 {
 	}
 }
 
-
-
 class K3 {
 	int x, y = 13;
 	

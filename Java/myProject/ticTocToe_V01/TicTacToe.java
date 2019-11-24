@@ -2,12 +2,12 @@ package ticTocToe_V01;
 
 public class TicTacToe {
 
-private char currentActualMark;
+public char currentActualMark;
 
-
+Controller message = new Controller();
 public TicTacToe() 
 {
-	currentActualMark = 'x'; 
+	currentActualMark = message.playerMark; 
 }
 //----------------------------------------------------------------------------------------------
 	
@@ -76,7 +76,7 @@ public void placeMark(Board board,int row, int column)
 		board.set(row, column, currentActualMark);
 		
 	}else 
-		new Controller().UsedNumber();;
+		new Controller().usedNumber();
 }
 
 }//end of Tic Tac Toe class

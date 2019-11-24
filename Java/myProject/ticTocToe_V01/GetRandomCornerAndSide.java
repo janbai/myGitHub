@@ -8,11 +8,15 @@ import java.util.Random;
 
 public class GetRandomCornerAndSide {
 
-private static Integer[] corners 				= {1,3}; //1,3,7,9
-private static Integer[] sides 					= {}; //2,4,6,8
-private static Integer[] validNo 					=  {1,2,3,4,5,6,7,8,9};
+static Controller message 				= new Controller();
+static Model model 						= new Model();
+private static Integer[] corners 		= message.corners;
+private static Integer[] sides 			= message.sides;
+private static Integer[] validNo 		=  message.validNumber;
+private static final char blank 				= message.blank;
+
 public static Integer getOpposite(int x) 			{ return 10-x;}
-static Model model = new Model();
+
 	static Random random = new Random();
 //-------------------------------------------------------------	
 
@@ -23,7 +27,7 @@ public static  List<Position> getFreeCell (Board board)
 
 	for (int x : validNo) 
 	{
-		if(p[x-1].getCurrentMark() == '-') 
+		if(p[x-1].getCurrentMark() == blank) 
 		{
 		freeCell.add(p[x-1]); 
 		}
@@ -52,20 +56,75 @@ public static boolean isOppositeBlocked(Board board, Position p) {
 	int OppCell = getOpposite(cellNo);
 	Position opp = model.getPosition(board, OppCell);
 	
-	return (opp.getCurrentMark()== '-')? true: false;
+	return (opp.getCurrentMark()== blank)? true: false;
 }	
 	
 //-------------------------------------------------------------	
+public static  Position getOpenFreeRandomCell (Board board) throws UnsupportedOperationException
+{
+	List<Position> freeOpenCell = new ArrayList<>();
+	Position [] p = model.getAllPositions(board);
+
+	for (int x : validNo) 
+	{
+		if(p[x-1].getCurrentMark() == blank) 
+		{
+		freeOpenCell.add(p[x-1]); 
+		}
+	}
+	Collections.shuffle(freeOpenCell);
+	Position goodMoveinFreeCell = (freeOpenCell.size()>0)? freeOpenCell.get(0): null;
 	
-	;
-public static  List<Position> getFreeRandomCorners  (Board board) throws UnsupportedOperationException
+	return goodMoveinFreeCell;
+}	
+//-------------------------------------------------------------	
+	
+public static  Position getOpenFreeRandomCorners (Board board) throws UnsupportedOperationException
+{
+	List<Position> freeOpenCorner = new ArrayList<>();
+	Position [] p = model.getAllPositions(board);
+
+	for (int x : corners) 
+	{
+		if(p[x-1].getCurrentMark() == blank && p[x-1].isGoodMove() == true) 
+		{
+		freeOpenCorner.add(p[x-1]); 
+		}
+	}
+	Collections.shuffle(freeOpenCorner);
+	Position goodMoveinCorner = (freeOpenCorner.size()>0)? freeOpenCorner.get(0): null;
+	
+	return goodMoveinCorner;
+}	
+//-------------------------------------------------------------	
+
+public static  Position getOpenFreeRandomSides (Board board) 
+{
+	List<Position> freeOpenSides = new ArrayList<>();
+	Position [] p = model.getAllPositions(board);
+
+	for (int x : sides) 
+	{
+		if(p[x-1].getCurrentMark()==blank && p[x-1].isGoodMove() == true) 
+		{
+			freeOpenSides.add((p[x-1]));
+		}
+	}
+	Collections.shuffle(freeOpenSides);
+Position goodMoveinSide = (freeOpenSides.size()>0)? freeOpenSides.get(0): null;
+	
+	return goodMoveinSide;
+}	
+//-------------------------------------------------------------	
+	
+public static  List<Position> getFreeRandomCorners (Board board) throws UnsupportedOperationException
 {
 	List<Position> freeCorner = new ArrayList<>();
 	Position [] p = model.getAllPositions(board);
 
 	for (int x : corners) 
 	{
-		if(p[x-1].getCurrentMark() == '-') 
+		if(p[x-1].getCurrentMark() == blank) 
 		{
 		freeCorner.add(p[x-1]); 
 		}
@@ -81,7 +140,7 @@ public static  List<Position> getFreeRandomSides (Board board)
 
 	for (int x : sides) 
 	{
-		if(p[x-1].getCurrentMark()=='-') { freeSides.add((p[x-1]));}
+		if(p[x-1].getCurrentMark()==blank) { freeSides.add((p[x-1]));}
 	}
 	Collections.shuffle(freeSides);
 	return freeSides;
@@ -126,46 +185,7 @@ board.reset();
 		printList(freeSides);
 */		
 	
-
-List<Position> freeCell = getFreeCell(board);
-List<Position> openFreeCell = getOpenFreeCell(board,freeCell);
-System.out.println("free Open Cell: ");
-printList(openFreeCell);
-
-board.set(1, 1, 'o');
-board.set(0, 0, 'x');
-board.set(0, 1, 'x');
-freeCell = getFreeCell(board);
-System.out.println("-------------------");
-System.out.println("free Open Cell: ");
-printList(freeCell);
-
-
-
 	}
-
-	public static  List<Position> getOpenFreeCell1 (Board board, List<Position> freeCell) 
-	{
-		List<Position> openFreeCell = new ArrayList<>();
-	
-			for (int index = 0; index < 3; index++) {
-				Position p = freeCell.get(index);
-				int r = p.getRow();
-				int c = p.getColumn();
-				
-				for (int i = 0; i < 3 && i != r; i++) { // check row
-					if (p.getCurrentMark() != '-') {
-						
-					}
-				}
-			
-			
-			
-			
-		}
-		return openFreeCell;
-	}	
-
 
 
 }

@@ -6,60 +6,89 @@ import java.util.Scanner;
 
 public class TicTacToe_Main {
 	
-private static Controller message = new Controller();
-
-//private static Scanner scanner = new Scanner(System.in);
-
+private static Controller message 	= new Controller();
+public static int counter			= 0;
 private static int player= 1;
+
+
+
+
 private static TicTacToe game = new TicTacToe();
 private static Board board = new Board(3,3);
 private static Model model	= new Model();
 private static Machine comp = new Machine();
 private static Position pos = new Position();
+private static Scanner scanner;
 
-private static int inputNr() 
+private static int inputInt(int From, int To) 
 {
-Scanner scanner = new Scanner(System.in);
 	int p = 0;
-	while(p<1 || p>9) {
-		try {   p = scanner.nextInt();
-			if(message.legalNummbers(p)) 	{ message.IllegalNummbers(); message.tryAgain();}} 
-		catch (InputMismatchException e)  	{ message.mismatchInput(); message.tryAgain();}}
+	while(p<From || p>To) {
+		try 
+		{
+			scanner = new Scanner(System.in);
+			p = scanner.nextInt();
+			if (To ==9) {if(message.isIllegalNumbers(p)) 	{ message.illegalNumbers();; message.tryAgain();}}
+			if (To ==3) {if(message.isIllegalMode(p)) 	{ message.illegalMode(); message.tryAgain();}}
+		} 
+		catch (InputMismatchException e)  	
+		{
+			if (To ==9) {message.mismatchInput(); message.tryAgain();}
+			if (To ==3) {message.mismatchMode(); message.tryAgain();}
+		}
+	}
 	return p;
 }
+private static String inputStr() 
+{
 	
-//--------------------------------Tec Tac Toe main----------------------------------------------------------------
+	scanner = new Scanner(System.in);
+	String answer = scanner.next().toLowerCase().substring(0,1);
+	return answer;
+}
+
+//******************************Tec Tac Toe main**************************
 	
 public static void main(String[] args) throws InterruptedException {
 		
-		
-		message.welcome();
-		
-		board.reset();
-		board.printBoard(); 
-		message.firstMassage();
-		
-		startPlay();
-		
-		
-	}//end of main
-
-static void startPlay () {
 	
+		message.welcome();
+		playTecTacToe();
+		
+		
+	}//end of main ********************************************************
+static void playTecTacToe() {
+	int playMode = 0;
+	
+	board.reset();
+	game.currentActualMark = message.playerMark;
+	board.printBoard(); 
+	message.chooseMode();
+			
+	playMode= inputInt(1,3);
+			
+	message.firstMassage();
+	startPlay(playMode);
+	
+}
+//-------------------------------------------------------------------------------
+static void startPlay (int playMode) {
+	player= 1;
+	int row, col;
+	int scanner = 0;
 	
 	while (!board.isBoardFull())
 	{
-		int row, col;
-		int scanner = 0;
+		
 		message.gameProcess(player);
-	
+			counter ++;
 		if (player==2) {
 			System.out.println(model.getCellNo(pos));
 			row = pos.getRow();
 			col = pos.getColumn();
 		}else 
 		{
-			scanner= inputNr();
+			scanner= inputInt(1,9);
 			row = model.getCoordinate(scanner)[0];
 			col = model.getCoordinate(scanner)[1];
 		}
@@ -68,33 +97,62 @@ static void startPlay () {
 			game.placeMark(board, row, col);
 			game.changePlayer();
 			board.printBoard(); 
-			
+			System.out.println("counter =" + counter);
 			playStatus(row, col);
 			
 			if (checkPlace) player = (player ==1) ? 2 : 1;
-			if (player == 2) pos = comp.strategy(board);
+			
+			if (player == 2) 
+			{
+					switch(playMode)
+					{
+					case 1: 
+						pos = comp.easyMode(board);break;
+					case 2:
+						pos = comp.mediumMode(board); break;
+					case 3:
+						pos = comp.hardMode(board,counter); break;
+					}
+			}
+				
 	}
 }
+//-------------------------------------------------------------------------------
 static void playStatus(int row, int col) {
-	
-	
+
 	if (game.checkGewinner(board) && player == 1) 
 	{ 
 		message.congradulation();
-		System.exit(0);
-	}else if (game.checkGewinner(board) && player == 2) 
+		wantToContinueExit();
+		}else if (game.checkGewinner(board) && player == 2) 
 	{
 		message.gameOver();
-		System.exit(0);
-	}
+		wantToContinueExit();
+		}
 	else if (board.isBoardFull()) 
 	{
 		message.gameDraw();
+		wantToContinueExit();
+		}
+}
+//------------------------------------------------------------------------------
+
+static void wantToContinueExit() {
+	
+	message.wantcontinueExit();
+	String answer = inputStr();
+
+	if (answer.compareTo("y")==0) 
+	{ 
+		playTecTacToe();
+		
+	}else {
+		message.goodbye();
 		System.exit(0);
 	}
-	
 }
 
 
 
-}
+
+}//end of TicTacToe Classe

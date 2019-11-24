@@ -2,9 +2,11 @@ package ticTocToe_V01;
 
 public class Board {
 
-	private final char blank='-';
+	
 	private char[][] board;
 	private Controller message = new Controller();
+	char blank = message.blank;
+	
 //-------------------------------------------------------------------------	
 	public Board() {}
 public Board(int rows, int columns) 
@@ -15,6 +17,7 @@ public Board(int rows, int columns)
 	
 public void reset() 
 { 
+	
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 	    board[i][j] = blank;
