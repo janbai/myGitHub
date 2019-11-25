@@ -146,7 +146,7 @@ static void wantToContinueExit() {
 	message.wantcontinueExit();
 	String answer = inputStr();
 
-	if (answer.compareTo("y")==0) 
+	if (answer.compareTo("y")==0) //if (answer.equalsIgnoreCase("y"))// if (answer.equals("y"))
 	{ 
 		playTecTacToe();
 		
