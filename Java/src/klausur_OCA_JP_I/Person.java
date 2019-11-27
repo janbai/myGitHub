@@ -18,18 +18,8 @@ public class Person {
 
 	
 	
-	@Override
-	public String toString() {
-		return "Person [vorname=" + vorname + ", nachname=" + nachname + ", alter=" + alter + ", beruf=" + beruf
-				+ ", verheiratet=" + verheiratet + "]";
-	}
+	
 
 
-
-
-	@Override
-	public String toString(String beruf)  {
-		return vorname + " " + nachname + " ist " + beruf;
-	}
 	
 }
