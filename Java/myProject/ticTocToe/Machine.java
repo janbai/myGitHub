@@ -1,4 +1,4 @@
-package ticTocToe_V01;
+package ticTocToe;
 
 
 public class Machine {

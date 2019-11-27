@@ -4,22 +4,25 @@ package trainingpool;
 
 public class ABCD {
 	
-	static public void foo() {
-	    String [] args = new String[2];
-	    args[0] = "hello";
-	    args[1] = "every";
-
-	    System.out.println("Output: " + args[0] + args[1]);
-	}
-		
+	public static final int MIN = 1;
 	
 	public static void main(String[] args)  {
+		int x = args.length;
+		System.out.println(x);
 		
-	String answer = "Y";
-	
-		System.out.println(answer.compareTo("y")==0); 
-		System.out.println(answer.equalsIgnoreCase("y"));
-		System.out.println(answer.equals("y"));
+		if (checkLimit(x)) { // line 1
+		System.out.println("Java SE");
+		} else {
+		System.out.println("Java EE");
+		}
+		System.out.println(x);
 		
+		for(int i = 0; i < args.length; i++) {
+            System.out.println(args[i]);
+        }
 	}//end of main
+
+public static boolean checkLimit(int x) {
+	return (x >= MIN) ? true : false;
+	}
 }
