@@ -67,7 +67,7 @@ public Position hardMode(Board board,int counter) {
 			
 			if(! model.IsCenterFree(board)) 
 			{
-				if(counter>3) 
+				if(counter>4) 
 				{
 				markPos = model.getRandomFreeCorner(board);
 				if ( markPos != null) 
