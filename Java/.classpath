@@ -9,6 +9,8 @@
 	<classpathentry kind="src" path="Objektorientiert"/>
 	<classpathentry kind="src" path="OCA.JP.1.V8.2"/>
 	<classpathentry kind="src" path="myLibrary"/>
+	<classpathentry kind="src" path="ProjectQuiz"/>
+	<classpathentry kind="src" path="Design Patterns"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

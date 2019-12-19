@@ -1,30 +1,18 @@
 package trainingpool;
-class Product {
 
- public double price;
- }
+enum CoffeeSize {HUGE, BIG, MEDIUM, SMALL}
 
- public class Test {
-
- public Object price;
-
-public void updatePrice(Test product, double price) {
- price = price * 2;
-//product.price = product.price + price;
+class  CoffeeSize1{
+	//enum CoffeeSize {HUGE, BIG, MEDIUM, SMALL}
+//	public static final CoffeeSize BIG = new CoffeeSize("BIG",0);
 }
+public class Test {         
+  // Normal main()
+  public static void main(String[] args) {
 
-	public static void main(String[] args) {
 
-		 Product prt = new Product();
-		  prt.price = 200;
-		  double newPrice = 100;
-		 
-		  Test t = new Test();
-		//  t.updatePrice(prt, newPrice);
-		  System.out.println(prt.price + " : " + newPrice);
-		
-		
-		
+	//  System.out.println(CaffeeSize.BIG);
+  }
+
 		
     }
-}
