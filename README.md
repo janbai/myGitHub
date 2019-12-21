@@ -1,2 +1,2 @@
-# myGetHub
+# myGitHub
 Java
