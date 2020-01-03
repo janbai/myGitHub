@@ -18,5 +18,6 @@ public class Q004 {
 		int s9 = (int) (s1*s5);
 		System.out.println(s9 );
 		
+	//	Long s10 = (Integer)s1 +s2;// compiler failer
 			}
 }

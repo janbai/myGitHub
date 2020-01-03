@@ -14,7 +14,7 @@ public static void main(String[] args) {
 int x = 3, y = 5;
 Test131 obj = new Test131(x, y);
 System.out.println(x + " " + y);
-System.out.println(obj.x + " " + obj.y);
+System.out.println(obj.x + " " + obj.y); //	9 25
 obj.initialize(obj.x, obj.y);
 System.out.println(obj.x + " " + obj.y); // 81 625
 }

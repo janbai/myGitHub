@@ -10,7 +10,7 @@ public class Q012 {
 		ta = ta.concat("B ");
 		char ta1 = ta.charAt(0);
 		IntStream ta2 = ta.chars();
-		System.out.println("ta2= " + ta2);
+		System.out.println("ta1= " + ta1);
 		
 		String tb = "C ";
 		ta = ta.concat(tb);

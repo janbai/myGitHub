@@ -11,10 +11,15 @@ public class Q112 {
 		for (String str : str2) {
 		str3 = str3 + str;
 		}
+		
 		boolean b1 = (str1 == str3);
 		boolean b2 = (str1.equals(str3));
-		System.out.print (b1 + ", " + b2);
+		System.out.println (b1 + ", " + b2);
 
+		String str4 = str1;
+		boolean b3 = (str1 == str4);
+		System.out.println(b3);
+		
 	}
 
 }

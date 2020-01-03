@@ -6,9 +6,12 @@ public class Employee {
 String name;
 boolean contract;
 double salary;
+
+
+
 Employee() {
 // line n1
-	//this("Joe", true, 100); // Compilation fails
+	//this("Joe", true, 100); // Compilation fails should add constructor public Employee(String name, boolean contract, double salary) {
 	this.name = new String("Joe");
 	this.contract = new Boolean(true);
 	this.salary = new Double(100);

@@ -22,12 +22,14 @@ class DerivedB extends Base {
 		Base b2 = new DerivedA();
 		Base b3 = new DerivedB();
 		b1 = (Base) b3;
+		
 	// 	Base b4 = (DerivedA) b3; // ClassCastException
 	// 	Base b4 = (DerivedA) b2; // DerivedA
 	// 	Base b4 = (DerivedB) b3; // DerivedB
 	//	Base b4 = (DerivedB) b1; // DerivedB
 		Base b4 = (DerivedB) b2; // ClassCastException
 		b1.test(); // DerivedB
+		
 		b4.test(); 
 		
 		

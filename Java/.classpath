@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="myLibrary"/>
 	<classpathentry kind="src" path="ProjectQuiz"/>
 	<classpathentry kind="src" path="OSA Exampool Practice"/>
+	<classpathentry kind="src" path="Inner Classes"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

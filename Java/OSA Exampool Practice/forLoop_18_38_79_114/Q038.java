@@ -42,7 +42,7 @@ public class Q038 {
 	static void discount_4() {
 		double discount = 0;
 		for (int qty = 78; qty < 92; qty++) {
-			if (qty > 80 && qty < 90) {discount = 0.2;}
+			if (qty > 80 & qty < 90) {discount = 0.2;}
 			else {discount = 0;}
 				
 			if (qty >= 90) {discount = 0.5;}

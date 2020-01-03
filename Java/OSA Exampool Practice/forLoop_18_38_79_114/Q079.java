@@ -10,8 +10,7 @@ public class Q079 {
 	}
 
 	static void print_1(int[][] n) {
-		
-		System.out.println();
+				
 		for (int i = n.length-1; i >= 0; i--) {
 		for (int y : n[i]) {
 		System.out.print (y);

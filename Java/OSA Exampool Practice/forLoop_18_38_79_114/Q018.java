@@ -14,11 +14,9 @@ public class Q018 {
 		
 		print_1(shirts);// medium:
 		print_2(shirts);//small:
-		try {
-			print_3(shirts);//compiler failer for (String[] sizes : shirts)
-		} catch (Error e) {
-			e.getClass();
-		}
+	
+		//	print_3(shirts);//compiler failer for (String[] sizes : shirts)
+		
 		
 		print_4(shirts);
 		
@@ -44,7 +42,7 @@ public class Q018 {
 			}
 		System.out.println();
 	}
-	
+	/*
 	static void print_3(String shirts[][]) {
 		System.out.println("Option 3 -----------------");
 		for (String sizes : shirts) {
@@ -54,7 +52,7 @@ public class Q018 {
 			}
 		System.out.println();
 	}
-	
+	*/
 	
 	static void print_4(String shirts[][]) {
 		System.out.println("Option 4 -----------------");

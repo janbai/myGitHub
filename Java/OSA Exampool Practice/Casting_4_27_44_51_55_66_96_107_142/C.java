@@ -6,21 +6,21 @@ public void test() {
 System.out.println("A");
 }
 }
-class B extends A {
+class B extends AA {
 public void test() {
 System.out.println("B");
 }
 }
-public class C extends A {
+public class C extends AA {
 public void test() {
 System.out.println("C");
 }
 public static void main(String[] args) {
-A b1 = new A();
-A b2 = new C();
-b1 = (A) b2;
-A b3 = (B) b2; // line n1 	ClassCastException
-b3 = (C) b2; // line n2		ClassCastException
+AA b1 = new AA();
+AA b2 = new CC();
+b1 = (AA) b2;
+AA b3 = (BB) b2; // line n1 	ClassCastException
+b3 = (CC) b2; // line n2		ClassCastException
 b1.test();
 b3.test();
 }
