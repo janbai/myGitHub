@@ -6,9 +6,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
 
 public class IterableExample {
+
+	private static int i=0;
 
 	public static void main(String[] args) {
 
@@ -35,9 +38,15 @@ public class IterableExample {
 		Iterable<Integer> iterable2 =  coll;
 		
 		iterable2.forEach(System.out::println);
-		iterable2.iterator().remove();
 		
+		System.out.println("-----------------------------");
 		
+		Consumer<Integer> action = entry -> { 			
+			if(entry%2 == 0) 
+				System.out.println("x" + ++i + ": " + entry);
+		};
+		 
+		iterable2.forEach( action );
 		
 	}
 
