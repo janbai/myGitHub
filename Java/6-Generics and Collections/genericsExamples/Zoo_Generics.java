@@ -1,67 +1,79 @@
 package genericsExamples;
 
-interface Reports{
-	void setGesund(boolean gesund);
-	boolean isGesund();
-	void reportGesund();
-	void sceduleFutter();
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.function.Consumer;
+
+
+
+class Zoo{
+	
+private Collection<Tier> tiere = new ArrayList<>();
+
+
+
+
+	@Override
+public String toString() {
+	return "Zoo|";
 }
 
-class Zoo{}
-class Gesund <L extends Lebewesen> implements Reports{
-	Lebewesen L;
+	public void add(Tier t) {
+		tiere.add(t);
+	}
 	
-	public void reportGesund() {
+	public Collection<Tier> getTiere() {
+		return tiere;
+	}
+	
+	public void zooReport() {
+
+		Iterable<Tier> ite = tiere;
+		
+		ite.forEach(System.out::println);
+	}
+}
+class Praxis <L extends Lebewesen>  {
+;
+	 public void reportGesund(Lebewesen L) {
 		if(L.isGesund()) {
-			System.out.println(getClass().getSimpleName() +": alles ist gut, danke!");			
+			System.out.println(L.getClass().getSimpleName() +": alles ist gut, danke!");			
 		}else {
-			System.out.println(getClass().getSimpleName() +": muss behandelt werden......ruf den Arzt!");		
+			System.out.println(L.getClass().getSimpleName() +": muss behandelt werden......ruf den Arzt!");		
 		}
 	}
-
-	@Override
-	public void setGesund(boolean gesund) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean isGesund() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void sceduleFutter() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	
 }
 
 
 class Futter <T extends Tier>{
-	Tier T;
 	
-	public void sceduleFutter() {
+	
+	public void sceduleFutter(Tier T) {
 		if(T.isFutter()) {
-			System.out.println(getClass().getSimpleName() +": ic bin voll, danke!");			
+			System.out.println(T.getClass().getSimpleName() +": ich bin voll, danke!");			
 		}else {
-			System.out.println(getClass().getSimpleName() +": ich bin hungar......!");		
+			System.out.println(T.getClass().getSimpleName() +": ich bin hungar......!");		
 		}
 	}
 }
-class Lebewesen <G extends Gesund>implements Reports{
+class Lebewesen extends Zoo  {
+	
 private boolean gesund;
 	
 	public boolean isGesund() {	return gesund;}
+	
+
+	public void getReportGesund() {
+		System.out.println("in den Lebewesen");
+	
+	}
 
 	@Override
 	public String toString() {
 		
-		return getClass().getSimpleName() + " " +  ( gesund ? ": gesund" : ": krank") ;
+		return super.toString() + getClass().getSimpleName() + " " +  ( gesund ? ": gesund" : ": krank") ;
 				
 	}
 
@@ -69,18 +81,6 @@ private boolean gesund;
 		this.gesund = gesund;
 	}
 
-	
-	public void reportGesund() {
-		
-	}
-	@Override
-	public void sceduleFutter() {
-		// TODO Auto-generated method stub
-		
-	}
-
-		
-	
 }
 class Mensch extends Lebewesen{
 	
@@ -117,10 +117,6 @@ class Tier extends Lebewesen{
 	public String toString() {
 		return super.toString() + " " +  ( futter ? ": voll" : ": hungerig");
 	}
-
-	
-	
-	
 }
 class Affe extends Tier {}
 class Zebra extends Tier {}
@@ -128,27 +124,42 @@ class Zebra extends Tier {}
 
 
 public class Zoo_Generics {
-
+	private static int i=0;
 	public static void main(String[] args) {
 		Affe affe = new Affe();
-		System.out.println(affe);
-	
-		affe.reportGesund();
+		Zebra zebra = new Zebra();
+		Zoo zooBerlin = new Zoo();
+		zooBerlin.add(affe);
+		zooBerlin.add(zebra);
 		
-		Arzt<Affe> tierArzt = new Arzt<>();
-		tierArzt.behandeln(affe);
-		System.out.println(affe);
+		zooBerlin.zooReport();
+		
+		
+		Praxis<Affe> affePraxis = new Praxis<>();
+		affePraxis.reportGesund(affe);
+		
+		Arzt<Affe> affeArzt = new Arzt<>();
+		affeArzt.behandeln(affe);
+		
+		zooBerlin.zooReport();
+		
+		affePraxis.reportGesund(affe);
+	//	affeArzt.behandeln(zebra);
+		Futter<Affe> affeFutter = new Futter<>();
+		affeFutter.sceduleFutter(affe);
+		
 		
 		Pfleger<Affe> affePfleger = new Pfleger<>();
 		affePfleger.behandeln(affe);
-		
-	//	affe.reportGesund();
+		System.out.println(affe);
+		affeFutter.sceduleFutter(affe);
 		
 		Mensch arbeiter = new Mensch();
 		Arzt<Mensch> menschArzt = new Arzt<>();
 		System.out.println(arbeiter);
 		menschArzt.behandeln(arbeiter);
-		
+	
+				
 	}
 
 }
