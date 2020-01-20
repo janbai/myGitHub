@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamExample {
+public class Stream_Utility {
 
 	public static void main(String[] args) {
 		Integer [] array = {1, 12, 33, -6, 101, -60, 77, -8};

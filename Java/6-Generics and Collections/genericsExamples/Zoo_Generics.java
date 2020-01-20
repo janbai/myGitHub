@@ -58,7 +58,7 @@ class Futter <T extends Tier>{
 		}
 	}
 }
-class Lebewesen extends Zoo  {
+abstract class Lebewesen extends Zoo  {
 	
 private boolean gesund;
 	
