@@ -16,7 +16,8 @@ public class Aufgabe_Stream_count_min_max {
 	public static void main(String[] args) {
 		Locale[] locales = Locale.getAvailableLocales();
 	
-	// findMaxName(locales);
+		
+	 findMaxName(locales);
 	//	getContries(locales);
 	//	getLanguages(locales);
 	//	getSpecialCountry(locales,"t");
