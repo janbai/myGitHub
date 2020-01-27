@@ -10,22 +10,40 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Random;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
-public class Aufgabe_Stream_count_min_max {
+public class Locale_Stream_count_min_max {
 
 	public static void main(String[] args) {
 		Locale[] locales = Locale.getAvailableLocales();
 	
 		
-	 findMaxName(locales);
+	 //findMaxName(locales);
 	//	getContries(locales);
 	//	getLanguages(locales);
-	//	getSpecialCountry(locales,"t");
+		getSpecialCountry(locales,"t");
 	//	sortAsLangauges(locales);
-		sortAsCountries(locales);
+	//	sortAsCountries(locales);
+	//	displayCountries(locales);
+	}
+	private static void displayCountries(Locale[] locales) {
+		
+        
+	
+	Comparator<? super Locale> comp = Comparator.comparing(Locale::getDisplayCountry);
+	
+	Optional<Locale> s =	Arrays.stream(locales)
+			.max(comp );
+	
+		//.sorted()
+		
+		
+	
+		
+System.out.println(s.get().getDisplayCountry());
+		
 		
 	}
-	
 	
 
 	private static void sortAsCountries(Locale[] locales) {
@@ -56,11 +74,18 @@ public class Aufgabe_Stream_count_min_max {
         	System.out.printf("%-40s %s%n", x.getDisplayCountry(), x.getDisplayLanguage());
         };
 		Arrays.stream(locales)
+		.filter(s -> s.getDisplayCountry() != "")
 		.sorted(cmp)
 		.distinct()
-		.filter(x -> x.getDisplayCountry() != "")
+		.filter(x -> x.getLanguage().equals("de"))
 		.forEach(action );
 		
+		long count = Stream.of(locales)
+				.filter(s -> s.getDisplayCountry() != "")
+				.map(Locale::getLanguage) // Stream<String>
+				.filter(s -> s.equals("de"))
+				.count();
+		System.out.println("Locales mit de: " + count);
 	}
 
 	static void getSpecialCountry(Locale[] locales, String s) {
@@ -71,12 +96,21 @@ public class Aufgabe_Stream_count_min_max {
 		.sorted()
 		.filter(x -> x.contains(s))
 		.forEach(System.out::println);
+		
+		long count =Arrays.stream(locales)
+		.map(x -> x. getDisplayCountry())
+		//.distinct()
+		.sorted()
+		.filter(x -> x.contains(s))
+		.count();
+		
+		System.out.println("count = " + count);
 	}
 	
 	static void getLanguages(Locale[] locales) {
 		System.out.println("A2 ---------------------------------------");
 		Arrays.stream(locales)
-		.map(x -> x. getLanguage())
+		.map(Locale::getLanguage)
 		.distinct()
 		.sorted()
 		.forEach(System.out::println);
@@ -85,7 +119,7 @@ public class Aufgabe_Stream_count_min_max {
 static void getContries(Locale[] locales) {
 	System.out.println("All Countries ---------------------------------------");
 	Arrays.stream(locales)
-	.map(x -> x. getDisplayCountry())
+	.map(Locale::getDisplayCountry)
 	.distinct()
 	.sorted()
 	.forEach(System.out::println);
@@ -97,7 +131,8 @@ static void getContries(Locale[] locales) {
 	static void findMaxName(Locale[] locales) {
 		System.out.println("A1 ---------------------------------------");
 		Optional<String> max = Arrays.stream(locales)
-		.map(x -> x. getDisplayCountry())
+		//.map(x -> x. getDisplayCountry())
+		.map(Locale::getDisplayCountry)
 		.distinct()
 		.max((String s1, String s2) -> s1.length()-s2.length());
 		
