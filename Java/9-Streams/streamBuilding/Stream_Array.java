@@ -38,6 +38,7 @@ public class Stream_Array {
 		arrStr1.forEach(System.out::println);
 
 		
+		
 	}
 
 }
