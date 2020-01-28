@@ -23,7 +23,7 @@ public class intermediate_destrict {
 		}
 		@Override
 		public String toString() {
-			return "Blume: " +price ;
+			return "Blume: " + price ;
 		}
 		@Override
 		public int hashCode() {
@@ -52,7 +52,9 @@ public class intermediate_destrict {
 		public void setPrice(int price) {
 			this.price = price;
 		}
-		
+		public double getDiscount() {
+			return getPrice() * 0.9;
+		}
 		
 	}
 	public static void main(String[] args) {
@@ -64,6 +66,7 @@ public class intermediate_destrict {
 		.map(Arrays::asList)
 		.flatMap(List::stream)
 		.map(Blume::new)
+		//.map(Blume::getDiscount)
 		.distinct()
 		.forEach(System.out::println);
 		
