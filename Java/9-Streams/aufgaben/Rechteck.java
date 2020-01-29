@@ -5,9 +5,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -58,14 +60,17 @@ public Integer getArea() {
 		Rechteck r4 = new Rechteck(9, 6);
 		Rechteck r5 = new Rechteck(6, 18);
 		
-		List<Rechteck> rechteck = new ArrayList<>();
-		rechteck.add(r1);
-		rechteck.add(r2);
-		rechteck.add(r3);
-		rechteck.add(r4);
-		rechteck.add(r5);
 		
 		
+		
+		System.out.println("using collct --------------------------");
+		
+		
+		List<Rechteck> rechteck = Stream.of(r1, r2, r3, r4, r5)
+			.collect(ArrayList::new, List::add, List::addAll  );
+		
+		System.out.println(rechteck);
+		System.out.println("-------------------");
 		System.out.println("A1");
 		rechteck.stream()
 		.map(Rechteck::getArea)
