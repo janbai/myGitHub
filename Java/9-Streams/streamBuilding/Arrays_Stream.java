@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-public class Stream_Array {
+public class Arrays_Stream {
 
 	public static void main(String[] args) {
 
