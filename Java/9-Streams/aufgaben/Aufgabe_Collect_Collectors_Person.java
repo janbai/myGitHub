@@ -82,8 +82,8 @@ System.out.println();
         System.out.println("**** mapping die beruf in array 1----");
        
         String[] array = Stream.of(personen)
-				.collect(Collectors.mapping(mapper,downstream))
-				.toArray(new String[personen.length]);
+				.collect(Collectors.mapping(Person::getBeruf,Collectors.toList()))
+				.toArray(String[]::new);
       
         for(String s : array) System.out.println(s);
         
