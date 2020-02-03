@@ -11,7 +11,7 @@ import java.util.List;
 
 
 
-public class Collections_Utility {
+public class Class_Collections {
 
 	public static void main(String[] args) {
 		Integer [] array = {1, 12, 33, -6, 101, -60, 77, -8};

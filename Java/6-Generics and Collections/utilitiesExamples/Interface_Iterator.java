@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 
 
-public class Iterator_Utility {
+public class Interface_Iterator {
 
 	
 

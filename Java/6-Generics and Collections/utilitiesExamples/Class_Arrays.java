@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.IntFunction;
 
-public class Arrays_Utility {
+public class Class_Arrays {
 
 	public static void main(String[] args) {
 		
