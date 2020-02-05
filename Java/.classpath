@@ -9,6 +9,7 @@
 	<classpathentry kind="src" path="6-Generics and Collections"/>
 	<classpathentry kind="src" path="8- Lambda Expressions and Functional Interfaces"/>
 	<classpathentry kind="src" path="9-Streams"/>
+	<classpathentry kind="src" path="5- IO and NIO"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
