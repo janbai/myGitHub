@@ -14,6 +14,10 @@ import java.util.stream.Stream;
 
 
 
+
+
+
+
 public class Aufgabe_Words_funkt_Streams {
 	public static List<String> test_readAllLines(String file) {
 	   
