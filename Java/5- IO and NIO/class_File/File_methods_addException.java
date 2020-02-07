@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class File_methods_addException {
 	static final String fmt = "%-30s%s%n";
-	@SuppressWarnings("deprecation")
+	
 	public static void main(String[] args) throws IOException {
 
 
@@ -17,8 +17,7 @@ public class File_methods_addException {
 		
 		
 
-		System.out.printf(fmt , "toURL(): " , file.toURL());
-
+		
 		
 		File newF1 = new File(parent, "Links100.txt");
 		newF1.createNewFile();
