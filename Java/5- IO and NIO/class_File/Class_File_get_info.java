@@ -1,6 +1,5 @@
 package class_File;
 
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -9,17 +8,11 @@ import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-
-
 public class Class_File_get_info {
-
 	
 static final String fmt = "%-30s%s%n";
 	public static void main(String[] args) {
-		
 			
-		
-		
 		String pathname = "C:\\Users\\CC-Student\\OneDrive\\Links.txt";
 		
 		File file = new File(pathname); // File Object
@@ -42,35 +35,31 @@ static final String fmt = "%-30s%s%n";
 		System.out.printf(fmt , "lastModified(): " , file.lastModified() + " milliseconds = " + df.format(file.lastModified()));//milliseconds
 		
 		System.out.printf(fmt , "length(): " , file.length() + " bytes");
-		
-		
+				
 		test_toPath();
 		
 		test_getCanonicalPath();
 		test_getCanonicalFile();
-		test_getCanonicalFile1();
+		test_getCanonicalFile_Exc();
 		currentWorkingDirectory();
-		
-		
+				
 	}
 	
-	static void test_toPath() {
-		File f1 = new File("C:\\Users*");
-		try { f1.toPath();
-			} catch (Exception e) { System.err.printf(fmt ,"test toPath(): ", e.getMessage());} //Unchecked exception
-		
-	}
-	static void test_getCanonicalFile1() {
-		
-		 try { 
-			   File f= new File("\u0000"	); 
-	            System.out.println(f.getCanonicalFile()); 
-		 } 
-	        catch (IOException e) {System.err.printf(fmt ,"test getCanonicalFile(): " , e.getMessage()); 
-	        } 
-	}
+static void test_toPath() {
+	File f1 = new File("C:\\Users*");
+	try { f1.toPath();
+		} catch (Exception e) { System.err.printf(fmt ,"test toPath(): ", e.getMessage());} //Unchecked exception
 	
+}
+static void test_getCanonicalFile_Exc() {
 	
+	 try { 
+		   File f= new File("\u0000"	); 
+            System.out.println(f.getCanonicalFile()); 
+	 } 
+        catch (IOException e) {System.err.printf(fmt ,"test getCanonicalFile(): " , e.getMessage()); 
+        } 
+}
 static void test_getCanonicalFile() {
 	
 	 try { 
@@ -83,7 +72,6 @@ static void test_getCanonicalFile() {
             System.err.println(e.getMessage()); 
         } 
 }
-
 static void test_getCanonicalPath() {
 	
 	 try { 
@@ -96,17 +84,16 @@ static void test_getCanonicalPath() {
             System.err.println(e.getMessage()); 
         } 
 }
-
-public static  void currentWorkingDirectory() {
+static  void currentWorkingDirectory() {
 	  String location;
 	  File file = new File(".");
 	  try {
 	    location = file.getCanonicalPath();
-	  } catch (IOException e) {
+	  } 
+	  catch (IOException e) {
 	    location = file.getAbsolutePath();
 	  }
 	  System.out.printf(fmt , "Current Working Directory: " , location);
 	}
-
 
 }
