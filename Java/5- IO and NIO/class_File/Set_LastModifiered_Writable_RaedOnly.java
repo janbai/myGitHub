@@ -20,14 +20,11 @@ public class Set_LastModifiered_Writable_RaedOnly {
 	}
 	private static void test_setExecutable() {
 		
-		
 	}
 	private static void test_setReadable() {
 		
-		
 	}
 	private static void test_setWritable() {
-	
 		
 	}
 	private static void test_setReadOnly() {

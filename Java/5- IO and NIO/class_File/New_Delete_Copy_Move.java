@@ -16,11 +16,10 @@ public class New_Delete_Copy_Move {
 		deleteOnExitFile("File_A.txt");
 		createDirectories();
 		renameToFile("File_A.txt", null);
-		
-
+	
 	}
 	private static void createTempFile() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	private static void renameToFile(String name1, String name2) {

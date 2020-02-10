@@ -24,14 +24,11 @@ public class File_boolean_is_can {
 		String child = "Links.txt";
 		
 		File p1 = new File(parent, child );//parent = null -> CF, child = null -> NullPointerExc
-		
-			
+					
 		File p2 = new File(new File(parent), child);
 		System.out.printf(fmt , "equals: " , p1.equals(p2));
 		System.out.printf(fmt , "compareTo: " , p1.compareTo(p2));
 		
 		
 	}
-
-
 }

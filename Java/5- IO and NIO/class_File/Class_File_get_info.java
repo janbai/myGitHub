@@ -13,7 +13,6 @@ public class Class_File_get_info {
 static final String fmt = "%-30s%s%n";
 	public static void main(String[] args) {
 			
-		
 		String pathname = "C:\\Users\\CC-Student\\OneDrive\\Links.txt";
 		
 		File file = new File(pathname); // File Object
