@@ -19,7 +19,6 @@ static final String fmt = "%-30s%s%n";
 		System.out.printf(fmt , "toString():" , file.toString());
 		System.out.printf(fmt , "toURI(): " , file.toURI());
 		
-		
 		System.out.printf(fmt , "getClass(): " , file.getClass());
 		
 		System.out.printf(fmt , "getAbsoluteFile(): " , file.getAbsoluteFile());
@@ -35,7 +34,8 @@ static final String fmt = "%-30s%s%n";
 		System.out.printf(fmt , "lastModified(): " , file.lastModified() + " milliseconds = " + df.format(file.lastModified()));//milliseconds
 		
 		System.out.printf(fmt , "length(): " , file.length() + " bytes");
-				
+		System.out.printf(fmt , "hashcode: " , file.hashCode());		
+		
 		test_toPath();
 		
 		test_getCanonicalPath();
@@ -48,7 +48,7 @@ static final String fmt = "%-30s%s%n";
 static void test_toPath() {
 	File f1 = new File("C:\\Users*");
 	try { f1.toPath();
-		} catch (Exception e) { System.err.printf(fmt ,"test toPath(): ", e.getMessage());} //Unchecked exception
+		} catch (InvalidPathException e) { System.err.printf(fmt ,"test toPath(): ", e.toString());} //Unchecked exception
 	
 }
 static void test_getCanonicalFile_Exc() {
