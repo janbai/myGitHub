@@ -41,6 +41,7 @@ static final String fmt = "%-30s%s%n";
 		test_getCanonicalPath();
 		test_getCanonicalFile();
 		test_getCanonicalFile_Exc();
+		
 		currentWorkingDirectory();
 				
 	}

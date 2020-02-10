@@ -91,7 +91,6 @@ private static void deleteFile(String fileName) {
 	} catch (SecurityException e) {
 		System.err.println(e.toString());
 	}
-	
 		
 	}
 private static void createNewFolder() {

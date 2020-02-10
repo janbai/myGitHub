@@ -22,7 +22,6 @@ static void test_listRoots() {
 	for( File rt : roots ) { System.out.printf(fmt , "" , rt);}
 	System.out.println();
 }
-
 static void test_list() {
 	System.out.println("*** .list(): ");
 	File dir = new File("C:\\");
@@ -33,7 +32,6 @@ static void test_list() {
 static void test_list_Filter() {
 	System.out.println("*** list(FileFilter)");
 	File dir = new File("C:\\Users\\CC-Student\\OneDrive");
-	String name = "OneDrive";
 	FilenameFilter filter = new FilenameFilter() {
 		
 

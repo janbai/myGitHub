@@ -1,5 +1,4 @@
 package class_File;
-
 import java.io.File;
 
 public class File_boolean_is_can {
@@ -28,7 +27,6 @@ public class File_boolean_is_can {
 		File p2 = new File(new File(parent), child);
 		System.out.printf(fmt , "equals: " , p1.equals(p2));
 		System.out.printf(fmt , "compareTo: " , p1.compareTo(p2));
-		
 		
 	}
 }
