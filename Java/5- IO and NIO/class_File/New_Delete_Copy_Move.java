@@ -3,8 +3,6 @@ package class_File;
 import java.io.File;
 import java.io.IOException;
 
-
-
 public class New_Delete_Copy_Move {
 	static final String fmt = "%-30s%s%n";
 	static final String pathName = "C:\\Users\\CC-Student\\OneDrive\\myFiles";

@@ -19,15 +19,15 @@ public class Set_LastModifiered_Writable_RaedOnly {
 		test_setExecutable();
 	}
 	private static void test_setExecutable() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	private static void test_setReadable() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	private static void test_setWritable() {
-		// TODO Auto-generated method stub
+	
 		
 	}
 	private static void test_setReadOnly() {
@@ -39,8 +39,7 @@ public class Set_LastModifiered_Writable_RaedOnly {
 			System.out.printf(fmt ,"Set read only: " , file.setReadOnly()); 
 		 } 
 		catch (SecurityException e) { System.err.println(e.toString());}
-		
-		
+			
 	}
 	private static void test_setLastModified()  {
 		System.out.println();
