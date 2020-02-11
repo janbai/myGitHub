@@ -69,7 +69,7 @@ static void test_getCanonicalFile() {
             System.out.printf(fmt , "Original file : " , f.getPath()); 
             System.out.printf(fmt , "Canonical file : "  , canonicalFile.toString()); 
         } 
-        catch (Exception e) { 
+        catch (IOException e) { 
             System.err.println(e.getMessage()); 
         } 
 }
@@ -81,7 +81,7 @@ static void test_getCanonicalPath() {
             System.out.printf(fmt , "Original file path : " , f.getPath()); 
             System.out.printf(fmt , "Canonical file path : "  , canonical); 
         } 
-        catch (Exception e) { 
+        catch (IOException e) { 
             System.err.println(e.getMessage()); 
         } 
 }
