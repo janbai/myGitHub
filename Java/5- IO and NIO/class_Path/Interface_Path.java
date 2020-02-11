@@ -1,16 +1,16 @@
 package class_Path;
 
-import java.io.File;
-import java.io.IOException;
+
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.FileSystemNotFoundException;
-import java.nio.file.FileSystems;
+
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Class_Path {
+public class Interface_Path {
 	static final String fmt = "%-40s%s%n";
 	static final String pathName = "C:\\Users\\CC-Student\\OneDrive\\myFiles";
 	public static void main(String[] args)  {
@@ -49,7 +49,7 @@ public class Class_Path {
 		
 		
 		try{
-			Path passedPath = Paths.get("*My Documents");
+			Path passedPath = Paths.get("*_My Documents");
 			Path resolvePath = path.resolve(passedPath);// if passedpath is String no need to throw exception
 			System.out.printf(fmt,"Resolve Path: ", resolvePath.toString());
 		}catch (InvalidPathException e) { System.err.printf(fmt,"Resolve Path:", e.toString());}

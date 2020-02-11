@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>10</y>
+      <w>250</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>/generics_auto::Auto/
+--
+#modell: String
+#baujahr: int
+--
++Auto(String modell, int baujahr): ctor
++toString(): String
++equals(Object obj): boolean
++hashCode(): int
++compareTo(T a2): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
