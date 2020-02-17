@@ -12,6 +12,10 @@ public class Creation_ExecutorService {
 	
 	//static AtomicInteger result1 = new AtomicInteger(); // zum Datenaustausch
 	//static AtomicInteger result2 = new AtomicInteger(); // zum Datenaustausch
+	
+	
+	
+	
 	public static void main(String[] args) {
 ExecutorService service = Executors.newCachedThreadPool();
 		
