@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-<<<<<<< HEAD
-	<classpathentry excluding="ticTacToe/|ticTacToe/" kind="src" path="src"/>
-	<classpathentry kind="src" path="myProject"/>
-	<classpathentry kind="src" path="myLibrary"/>
-	<classpathentry kind="src" path="ProjectQuiz"/>
+	<classpathentry kind="src" path="05_IO_and_NIO"/>
+	<classpathentry kind="src" path="06_Generics_and_Collections"/>
+	<classpathentry kind="src" path="09_Streams"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="OSA Exampool Practice"/>
-	<classpathentry kind="src" path="Inner Classes"/>
-	<classpathentry kind="src" path="6_Generics_and_Collections"/>
-	<classpathentry kind="src" path="8_Lambda_Expressions_and_Functional_Interfaces"/>
-	<classpathentry kind="src" path="9_Streams"/>
-	<classpathentry kind="src" path="5_IO_and_NIO"/>
-	<classpathentry kind="src" path="Auto"/>
-	<classpathentry kind="src" path="10_Threads"/>
 	<classpathentry kind="src" path="11_Concurrency"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry kind="src" path="08_Lambda_Expressions_and_Functional_Interfaces"/>
+	<classpathentry kind="src" path="Inner Classes"/>
+	<classpathentry kind="src" path="myLibrary"/>
+	<classpathentry kind="src" path="myProject"/>
+	<classpathentry kind="src" path="ProjectQuiz"/>
+	<classpathentry kind="src" path="10_Threads"/>
 	<classpathentry kind="src" path="executorService"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-=======
-	<classpathentry kind="lib" path="11_Concurrency/aufgaben/AufgabePermutation_copy.java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
->>>>>>> branch 'master' of https://github.com/Janbai/myGithub
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
