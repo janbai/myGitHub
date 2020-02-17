@@ -12,6 +12,7 @@
 	<classpathentry kind="src" path="5_IO_and_NIO"/>
 	<classpathentry kind="src" path="Auto"/>
 	<classpathentry kind="src" path="10_Threads"/>
+	<classpathentry kind="src" path="11_Concurrency"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
