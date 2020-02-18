@@ -1,4 +1,4 @@
-package executor.service;
+package executorService;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;

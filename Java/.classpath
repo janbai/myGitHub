@@ -13,7 +13,6 @@
 	<classpathentry kind="src" path="myProject"/>
 	<classpathentry kind="src" path="ProjectQuiz"/>
 	<classpathentry kind="src" path="10_Threads"/>
-	<classpathentry kind="src" path="executorService"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
