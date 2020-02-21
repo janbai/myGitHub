@@ -41,6 +41,7 @@ public class MySqlUtilsTest {
 		 *   
 		 *  MySqlUtils.removeTableTiere(), die die Tabele tiere entfernt
 		 *  
+		 *  
 		 *  A4.
 		 *   
 		 *  MySqlUtils.printTableTiere(), die die Tabele tiere formatiert ausgibt
@@ -52,11 +53,11 @@ public class MySqlUtilsTest {
 		 *  
 		 */
 		
-//		MySqlUtils.removeTableTiere();
+		MySqlUtils.removeTableTiere();
 		
 		MySqlUtils.buildTableTiere();
 		
-	//	MySqlUtils.printTableTiere();
+		MySqlUtils.printTableTiere();
 
 	}
 
