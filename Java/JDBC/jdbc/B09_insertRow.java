@@ -1,11 +1,11 @@
-package anfang;
+package jdbc;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class B10_updateRow {
+public class B09_insertRow {
 
 	public static void main(String[] args) throws SQLException {
 		MySqlUtils.removeTableTiere();
@@ -18,15 +18,18 @@ public class B10_updateRow {
 		try(Connection c = MySqlUtils.getConnection();
 				Statement stm = c.createStatement(resultSetType, resultSetConcurrency); 
 						ResultSet res = stm.executeQuery("select * from tiere")) {
-
-			res.last(); // Zeile mit Lassie
 			
+			res.moveToInsertRow(); // Spezielle Zeile zum Vorbereiten eines neuen Datensatzes
+			
+			res.updateInt("id", 4);
 			res.updateString("name", "Rex");
+			res.updateInt("alter", 2);
 			
-			res.updateRow(); // Änderung in der Datenbank übernehmen
+			res.insertRow(); // neue zeile in der datenbank in der Tabelle 'tiere' übernehmen
 		}
 		
 		MySqlUtils.printTableTiere();
 		
 	}
+
 }

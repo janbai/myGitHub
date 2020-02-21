@@ -1,4 +1,4 @@
-package anfang;
+package jdbc;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -16,7 +16,7 @@ public class MySqlUtils {
 	
 	private static String loadScript(String scriptName) {
 		try {
-			return Files.lines( Paths.get("src/jdbc/").resolve(scriptName) )
+			return Files.lines( Paths.get("jdbc/").resolve(scriptName) )
 					.map(String::trim)
 					.collect(Collectors.joining(" ") );
 			
