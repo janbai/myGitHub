@@ -13,6 +13,8 @@ public class B06_Statement_execute {
 		MySqlUtils.buildTableTiere();
 		
 		
+		
+		
 		try( Connection c = MySqlUtils.getConnection();
 				Statement stm = c.createStatement() ) {
 			

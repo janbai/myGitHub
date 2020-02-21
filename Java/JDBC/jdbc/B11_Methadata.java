@@ -11,6 +11,9 @@ public class B11_Methadata {
 
 	public static void main(String[] args) throws SQLException {
 
+		
+		
+		
 		MySqlUtils.removeTableTiere();
 		MySqlUtils.buildTableTiere();
 		MySqlUtils.printTableTiere();

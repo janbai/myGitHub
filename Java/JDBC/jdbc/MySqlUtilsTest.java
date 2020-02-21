@@ -6,6 +6,9 @@ import java.sql.SQLException;
 public class MySqlUtilsTest {
 
 	public static void main(String[] args) throws SQLException {
+		   
+		
+		
 		
 		/*
 		 * A1. 
