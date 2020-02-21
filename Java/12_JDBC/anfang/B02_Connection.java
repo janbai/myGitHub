@@ -11,7 +11,7 @@ public class B02_Connection {
 		// url ohne eine Datenbank auswählen:
 		String url = "jdbc:mysql://localhost?serverTimezone=UTC";
 		String user = "root";
-		String password = "Janbai5143118";
+		String password = "1234";
 		
 		try( Connection connection = DriverManager.getConnection(url, user, password) ) {
 			System.out.println("** Die Verbindung steht ");

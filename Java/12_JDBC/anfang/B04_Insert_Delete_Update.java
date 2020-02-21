@@ -9,30 +9,16 @@ public class B04_Insert_Delete_Update {
 
 	public static void main(String... args) {
 		String url = "jdbc:mysql://localhost?serverTimezone=UTC";
-		try( Connection connection = DriverManager.getConnection(url, "root", "Janbai5143118") ) {
+		try( Connection connection = DriverManager.getConnection(url, "root", "1234") ) {
 			
 			try( Statement stm = connection.createStatement() ) {
 
 				/*
 				 * INSERT
 				 */
-				String sql = "INSERT INTO `java_test_db`.`personen` (`vorname`, `nachname`, `geburtsjahr`) VALUES ('George', 'H.', '1958')";
+				String sql = "INSERT INTO java_test_db.personen VALUES (10,'Hanan', 'Janbai', '1982')";
 				stm.executeUpdate(sql);
 				System.out.println("George H. hinzugefügt");
-				
-				/*
-				 * UPDATE
-				 */
-				sql = "update `java_test_db`.`personen` set geburtsjahr = 1955 where vorname='George'" ;
-				stm.executeUpdate(sql);
-				System.out.println("Geburtsjahr von allen mit dem Vornamen George auf 1955 geändert");
-			
-				/*
-				 * DELETE
-				 */
-				sql = "delete from `java_test_db`.`personen` where vorname='George'";
-				stm.executeUpdate(sql);
-				System.out.println("Allen mit dem Vornamen George entfernt");
 				
 			} // <- stm.close()
 			

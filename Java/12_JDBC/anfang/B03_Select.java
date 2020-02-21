@@ -11,7 +11,7 @@ public class B03_Select {
 	public static void main(String[] args) {
 
 		String url = "jdbc:mysql://localhost?serverTimezone=UTC";
-		try( Connection connection = DriverManager.getConnection(url, "root", "Janbai5143118") ) {
+		try( Connection connection = DriverManager.getConnection(url, "root", "1234") ) {
 			
 			try( Statement stm = connection.createStatement() ) {
 			

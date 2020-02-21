@@ -23,7 +23,7 @@ public class MySqlUtils {
 	
 	public static Connection getConnection() throws SQLException {
 		String url = "jdbc:mysql://localhost/java_test_db?serverTimezone=UTC";
-		return DriverManager.getConnection(url, "root", "Janbai5143118");
+		return DriverManager.getConnection(url, "root", "1234");
 	}
 
 	/**
