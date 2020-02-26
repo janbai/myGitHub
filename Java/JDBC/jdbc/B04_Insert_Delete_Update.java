@@ -16,9 +16,9 @@ public class B04_Insert_Delete_Update {
 				/*
 				 * INSERT
 				 */
-				String sql = "INSERT INTO java_test_db.personen VALUES (10,'Hanan', 'Janbai', '1982')";
+				String sql = "INSERT INTO java_test_db.personen VALUES (12,'Amer', 'Janbai', '1986')";
 				stm.executeUpdate(sql);
-				System.out.println("George H. hinzugefügt");
+				System.out.println("Amer Janbai hinzugefügt");
 				
 			} // <- stm.close()
 			

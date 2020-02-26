@@ -9,7 +9,7 @@ public class B06_Statement_execute {
 
 	public static void main(String[] args) throws SQLException {
 		
-	//	MySqlUtils.removeTableTiere();
+		MySqlUtils.removeTableTiere();
 		MySqlUtils.buildTableTiere();
 		
 		

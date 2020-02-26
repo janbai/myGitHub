@@ -16,7 +16,7 @@ public class MySqlUtils {
 	
 	private static String loadScript(String scriptName) {
 		try {
-			return Files.lines( Paths.get("jdbc/").resolve(scriptName) )
+			return Files.lines( Paths.get("C:\\Eclipse\\eclipse-workspace\\myGitHub\\Java\\JDBC\\jdbc\\").resolve(scriptName) )
 					.map(String::trim)
 					.collect(Collectors.joining(" ") );
 			
