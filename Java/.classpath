@@ -16,6 +16,7 @@
 	<classpathentry excluding="lib/" kind="src" path="JDBC"/>
 	<classpathentry kind="src" path="01_DeclarationsAccessControl_Enums"/>
 	<classpathentry kind="src" path="OCP_exampool"/>
+	<classpathentry kind="src" path="4_DatesTimesLocales_ResourceBandles"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
