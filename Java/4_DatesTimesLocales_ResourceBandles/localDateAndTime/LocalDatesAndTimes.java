@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-public class ClassesForDatesAndTimes {
+public class LocalDatesAndTimes {
 
 	public static void main(String[] args) {
 		
@@ -19,6 +19,8 @@ public class ClassesForDatesAndTimes {
 		LocalTime nowTime = LocalTime.now();
 		LocalDateTime nowDateTime = LocalDateTime.of(nowDate, nowTime);
 		System.out.println("It's currently " + nowDateTime + " where I am");
+		
+		
 		
 		LocalDate eclipseDate1 = LocalDate.of(2017, 8, 21); // ISO-8601  YYYY-MM-DD
 		LocalDate eclipseDate2 = LocalDate.parse("2017-08-21");

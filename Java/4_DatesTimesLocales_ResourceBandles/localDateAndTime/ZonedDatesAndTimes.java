@@ -28,12 +28,21 @@ public class ZonedDatesAndTimes {
 				Set<String> zoneIds = ZoneId.getAvailableZoneIds();
 				List<String> zoneList = new ArrayList<String>(zoneIds);
 				Collections.sort(zoneList);
+				/*
+				 * Africa, America, Antarctica, Asia, Atlantic, Australia, 
+				 *  Brazil, CET, CST6CDT, Canada, Chile, Cuba, EET
+				 *  US, Europe, 	
+				 
 				for (String zoneId : zoneList) {
-				if (zoneId.contains("US")) {
-				System.out.println(zoneId);
-				}
-				}
+					if (zoneId.contains("Europe")) { 
+					System.out.println(zoneId);
+					}
+					}
+				*/	
 				
+				zoneIds.stream()
+							.filter(x -> x.contains("Europe"))
+							.forEach(System.out::println);
 				
 				ZoneId pacific = ZoneId.of("US/Pacific");
 				// pacific.getRules() returns a ZoneRules object that has all the rules
