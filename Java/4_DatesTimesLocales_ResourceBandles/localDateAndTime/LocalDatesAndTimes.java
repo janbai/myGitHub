@@ -4,12 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+
 
 public class LocalDatesAndTimes {
 
@@ -18,8 +14,13 @@ public class LocalDatesAndTimes {
 		LocalDate nowDate = LocalDate.now();
 		LocalTime nowTime = LocalTime.now();
 		LocalDateTime nowDateTime = LocalDateTime.of(nowDate, nowTime);
-		System.out.println("It's currently " + nowDateTime + " where I am");
+		System.out.println("It's currently " + nowDateTime + " where I am"); 
+				//Java displays a "T" between the date and the time
 		
+		LocalDateTime nowLocal = LocalDateTime.now();
+		ZoneId zoneId1 = ZoneId.of("Asia/Tokyo");
+		LocalDateTime nowTokyo = LocalDateTime.now(zoneId1 );
+		System.out.println(nowTokyo);
 		
 		
 		LocalDate eclipseDate1 = LocalDate.of(2017, 8, 21); // ISO-8601  YYYY-MM-DD

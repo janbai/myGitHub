@@ -13,11 +13,9 @@ public class DateAndTimeAdjustments {
 	public static void main(String[] args) {
 
 
-		String eclipseDateTime = "2017-08-21 10:19";
-		DateTimeFormatter formatter =
-		DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		LocalDateTime eclipseDay =
-		LocalDateTime.parse(eclipseDateTime, formatter); // use formatter
+	String eclipseDateTime = "2017-08-21 10:19";
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+	LocalDateTime eclipseDay = 	LocalDateTime.parse(eclipseDateTime, formatter); // use formatter
 		
 		ZonedDateTime zTotalityDateTime =
 				ZonedDateTime.of(eclipseDay, ZoneId.of("US/Pacific"));
@@ -32,7 +30,9 @@ public class DateAndTimeAdjustments {
 				
 				OffsetDateTime offsetDateTime = OffsetDateTime.now();
 				System.out.println(offsetDateTime);
+				System.out.println(offsetDateTime.getOffset());
 				
+			
 				
 				
 	}
