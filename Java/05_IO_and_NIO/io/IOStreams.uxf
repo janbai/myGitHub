@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>13</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>299</y>
+      <w>156</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>/InputStream/
+--
+/+ read() : int/
++ close() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>195</x>
+      <y>299</y>
+      <w>182</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>/OutputStream/
+--
+/+ write(x : int) : void/
++ flush() : void
++ close() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>559</x>
+      <y>299</y>
+      <w>156</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>/Reader/
+--
+/+ read() : int/
++ close() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>754</x>
+      <y>299</y>
+      <w>182</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>/Writer/
+--
+/+ write(x : int) : void/
++ flush() : void
++ close() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>819</x>
+      <y>585</y>
+      <w>130</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>FileWriter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>832</x>
+      <y>403</y>
+      <w>78</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>611</x>
+      <y>585</y>
+      <w>130</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>FileReader</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>377</y>
+      <w>78</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>416</x>
+      <y>650</y>
+      <w>195</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>BufferedReader
+--
++ readLine() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>533</x>
+      <y>377</y>
+      <w>130</w>
+      <h>299</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>702</x>
+      <y>650</y>
+      <w>169</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>BufferedWriter
+--
++ newLine() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>767</x>
+      <y>403</y>
+      <w>104</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>962</x>
+      <y>468</y>
+      <w>364</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>PrintWriter
+--
++ format(fmt : String, args : Object...)
+viele print-Methoden
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>832</x>
+      <y>403</y>
+      <w>247</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;50.0</additional_attributes>
+  </element>
+</diagram>

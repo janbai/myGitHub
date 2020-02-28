@@ -16,6 +16,9 @@ public class B06_ResourceBundle {
 		 * daher beinhaltet baseName keinen Pfad: die Angaben sind 'symbolisch' und beschreiben eine Resource im Classpath.
 		 * 
 		 *  Suffixe wie '_de' oder 'en_GB' gehören nicht zum baseName.
+		 *  
+		 *  Exam: Wenn die Strings aus der .properties Datei geladen werden,
+		 *  		darf die Datei keine andere Erweiterung haben.
 		 */
 		String baseName = "res.Strings"; // wie ein Klassenname
 		

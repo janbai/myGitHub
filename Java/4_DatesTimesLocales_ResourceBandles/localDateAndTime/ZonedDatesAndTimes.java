@@ -41,7 +41,7 @@ public class ZonedDatesAndTimes {
 				*/	
 				
 				zoneIds.stream()
-							.filter(x -> x.contains("Europe"))
+							.filter(x -> x.contains("America/New"))
 							.forEach(System.out::println);
 				
 				ZoneId pacific = ZoneId.of("US/Pacific");
