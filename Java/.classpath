@@ -8,7 +8,7 @@
 	<classpathentry kind="src" path="11_Concurrency"/>
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="src" path="08_Lambda_Expressions_and_Functional_Interfaces"/>
-	<classpathentry kind="src" path="Inner Classes"/>
+	<classpathentry kind="src" path="7_Inner Classes"/>
 	<classpathentry kind="src" path="myLibrary"/>
 	<classpathentry kind="src" path="myProject"/>
 	<classpathentry kind="src" path="ProjectQuiz"/>
