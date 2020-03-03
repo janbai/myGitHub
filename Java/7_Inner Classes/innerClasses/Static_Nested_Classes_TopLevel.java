@@ -1,7 +1,13 @@
 package innerClasses;
 
-class BigOuter{
-	static class Nest{ void go() { System.out.println("hi ...");}}
+import java.util.Map;
+import java.util.Map.Entry;
+
+
+
+class Pairs<Integer, String>{
+	static class Element {
+		void go() { System.out.println("hi ...");}}
 }
 
 
@@ -10,13 +16,13 @@ public class Static_Nested_Classes_TopLevel {
 	
 	public static void main(String[] args) {
 
-		BigOuter.Nest n = new BigOuter.Nest();
+		Pairs.Element n = new Pairs.Element();
 		n.go();
 		
 		B2 b2 = new B2();
 		b2.goB2();
 		
-		
+		Map.Entry<Integer, String> entry =  new Pairs.Element();
 
 
 	}
