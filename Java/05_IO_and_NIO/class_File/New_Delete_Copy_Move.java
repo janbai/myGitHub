@@ -1,22 +1,50 @@
 package class_File;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class New_Delete_Copy_Move {
 	static final String fmt = "%-30s%s%n";
 	static final String pathName = "C:\\Users\\CC-Student\\OneDrive\\myFiles";
+	
+	static void openDir(Path dir) {
+		try {
+			Desktop.getDesktop().open(dir.toFile());
+		} catch (Exception e) {
+			System.err.println("Kann das Verzeichnis nicht öffnen: " + dir);
+		}
+	}
 	public static void main(String[] args) throws IOException {
 
-		createNewFile();
-		createNewFolder();
-		createTempFile();
+	//	createNewFile();
+	//	createNewFolder();
+	//	createTempFile();
 	//	deleteFile("File_C");
 	//	deleteFile("File_A.txt");
-		deleteOnExitFile("File_A.txt");
-		createDirectories();
-		renameToFile("File_A.txt", null);
-	
+	//	deleteOnExitFile("File_A.txt");
+	//	createDirectories();
+	//	renameToFile("File_A.txt", null);
+		book_Example_01();
+	}
+	private static void book_Example_01() {
+		try { // warning: exceptions possible
+			boolean newFile = false;
+			File file = new File // it's only an object
+			("fileWrite1.txt");
+			System.out.println(file.exists()); // look for a real file
+			newFile = file.createNewFile(); // maybe create a file!
+			System.out.println(newFile); // already there?
+			System.out.println(file.exists()); // look again
+			} catch(IOException e) { }
+		String currentDirectory = System.getProperty("user.dir");
+		System.out.println("Working Directory = " + currentDirectory);
+		Path myPath = Paths.get(currentDirectory);
+		Path path = FileSystems.getDefault().getPath(".");
+		openDir(path);
 	}
 	private static void createTempFile() {
 		
