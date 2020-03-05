@@ -2,6 +2,7 @@ package class_Files;
 
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -35,7 +36,7 @@ public class B09_Files_create_delete {
 			e.printStackTrace();
 		}
 		
-		
+	
 		
 	}
 	
@@ -57,7 +58,13 @@ public class B09_Files_create_delete {
 			e.printStackTrace();
 		}
 		
-		
+		try {
+			URI uri=null;;
+			Paths.get(uri).d
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
