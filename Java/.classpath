@@ -14,11 +14,12 @@
 	<classpathentry kind="src" path="ProjectQuiz"/>
 	<classpathentry kind="src" path="10_Threads"/>
 	<classpathentry excluding="lib/" kind="src" path="JDBC"/>
-	<classpathentry kind="src" path="01_DeclarationsAccessControl_Enums"/>
 	<classpathentry kind="src" path="OCP_exampool"/>
 	<classpathentry kind="src" path="4_DatesTimesLocales_ResourceBandles"/>
 	<classpathentry kind="src" path="klausur"/>
 	<classpathentry kind="src" path="OCP Exampool Practice"/>
+	<classpathentry kind="src" path="02_Object_Orientation"/>
+	<classpathentry kind="src" path="class_design_pkb"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
